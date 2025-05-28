@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import DataGrid from "./DataGrid";
 
 const xlsxWorker = new Worker(
   new URL("./../workers/xlsxWorker.ts", import.meta.url),
@@ -7,11 +8,12 @@ const xlsxWorker = new Worker(
   }
 );
 
-type WorkBookProps = {
+interface WorkBookProps {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-};
+}
 
-const WorkBook = ({ setLoading }: WorkBookProps) => {
+const WorkBook: React.FC<WorkBookProps> = ({ setLoading }) => {
+  const [data, setData] = useState<Record<string, any> | null>(null);
   const fileChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -41,7 +43,8 @@ const WorkBook = ({ setLoading }: WorkBookProps) => {
     setLoading(false);
 
     if (e.data.success) {
-      console.log("Workbook:", e.data.workbook);
+      console.log("Workbook:", e.data.workbook["Sheets"]);
+      setData(e.data.workbook["Sheets"]);
     } else {
       console.error("Worker error:", e.data.error);
     }
@@ -52,6 +55,7 @@ const WorkBook = ({ setLoading }: WorkBookProps) => {
       <div>
         <input type="file" onChange={fileChangeHandler} />
       </div>
+      {data && <DataGrid data={data} />}
     </div>
   );
 };
