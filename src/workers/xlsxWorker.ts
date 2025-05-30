@@ -6,7 +6,7 @@ self.onmessage = (e) => {
     const wb = read_xlsx(buffer, {
       type: "array",
       dense: true,
-      //   cellStyles: true,
+      cellStyles: true,
     });
     self.postMessage({ success: true, workbook: wb });
   } catch (err) {

@@ -1,19 +1,13 @@
 import React, { useState } from "react";
 import DataGrid from "./DataGrid";
 
-const xlsxWorker = new Worker(
-  new URL("./../workers/xlsxWorker.ts", import.meta.url),
-  {
-    type: "module",
-  }
-);
-
 interface WorkBookProps {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const WorkBook: React.FC<WorkBookProps> = ({ setLoading }) => {
   const [data, setData] = useState<Record<string, any> | null>(null);
+
   const fileChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -27,27 +21,37 @@ const WorkBook: React.FC<WorkBookProps> = ({ setLoading }) => {
       return;
     }
 
+    setData(null);
     setLoading(true);
 
     const reader = new FileReader();
     reader.onload = (event) => {
       const buffer = event.target?.result;
       if (!buffer) return;
+
+      const xlsxWorker = new Worker(
+        new URL("./../workers/xlsxWorker.ts", import.meta.url),
+        {
+          type: "module",
+        }
+      );
+
       xlsxWorker.postMessage(buffer);
+
+      xlsxWorker.onmessage = (e) => {
+        setLoading(false);
+
+        if (e.data.success) {
+          setData(e.data.workbook);
+        } else {
+          console.error("Worker error:", e.data.error);
+        }
+
+        xlsxWorker.terminate();
+      };
     };
 
     reader.readAsArrayBuffer(file);
-  };
-
-  xlsxWorker.onmessage = (e) => {
-    setLoading(false);
-
-    if (e.data.success) {
-      console.log("Workbook:", e.data.workbook["Sheets"]);
-      setData(e.data.workbook["Sheets"]);
-    } else {
-      console.error("Worker error:", e.data.error);
-    }
   };
 
   return (
