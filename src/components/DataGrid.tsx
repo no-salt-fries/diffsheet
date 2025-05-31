@@ -11,7 +11,7 @@ const DataGrid: React.FC<DataGridProps> = ({ data }) => {
   const sheets = data["Sheets"];
 
   const [sheetName, setSheetName] = useState<string>(sheetNames[0]);
-  const selectedData = utils.sheet_to_json(sheets[sheetName], {
+  const selectedData: any[][] = utils.sheet_to_json(sheets[sheetName], {
     header: 1,
     raw: false,
     defval: "",
@@ -48,6 +48,16 @@ const DataGrid: React.FC<DataGridProps> = ({ data }) => {
 
       containerRef.current.style.width = "100%";
       containerRef.current.style.height = window.innerHeight - 200 + "px";
+
+      grid.addEventListener("beforesortcolumn", (e: any) => {
+        e.preventDefault();
+      });
+
+      grid.addEventListener("click", (e: any) => {
+        if (!e.cell) return;
+        console.log(e.cell.rowIndex, e.cell.columnIndex);
+        console.log(selectedData[e.cell.rowIndex][e.cell.columnIndex]);
+      });
 
       grid.data = selectedData;
       gridRef.current = grid;
