@@ -46,6 +46,9 @@ const DataGrid: React.FC<DataGridProps> = ({ data }) => {
       grid.style.height = "100%";
       grid.style.width = "100%";
 
+      containerRef.current.style.width = "100%";
+      containerRef.current.style.height = window.innerHeight - 200 + "px";
+
       grid.data = selectedData;
       gridRef.current = grid;
     }
