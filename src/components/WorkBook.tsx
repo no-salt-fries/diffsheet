@@ -3,9 +3,10 @@ import DataGrid from "./DataGrid";
 
 interface WorkBookProps {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectedCell: React.Dispatch<React.SetStateAction<any>>;
 }
 
-const WorkBook: React.FC<WorkBookProps> = ({ setLoading }) => {
+const WorkBook: React.FC<WorkBookProps> = ({ setLoading, setSelectedCell }) => {
   const [data, setData] = useState<Record<string, any> | null>(null);
 
   const fileChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,7 +60,7 @@ const WorkBook: React.FC<WorkBookProps> = ({ setLoading }) => {
       <div>
         <input type="file" onChange={fileChangeHandler} />
       </div>
-      {data && <DataGrid data={data} />}
+      {data && <DataGrid data={data} setSelectedCell={setSelectedCell} />}
     </div>
   );
 };
