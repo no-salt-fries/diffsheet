@@ -49,6 +49,16 @@ const DataGrid: React.FC<DataGridProps> = ({ data, setSelectedCell }) => {
         parentNode: containerRef.current,
       });
 
+      // columnHeaderClickBehavior = 'sort' | 'select' | 'none'
+      // columnHeader를 클릭했을 때 정렬되는 것을 막으려면 select 또는 none로 설정
+      grid.setAttribute("columnHeaderClickBehavior", "none");
+
+      // 비교하는 페이지이기 때문에 수정은 불필요
+      grid.setAttribute("editable", false);
+
+      // selection(ActiveCell)이 하나만 존재하도록 설정
+      grid.setAttribute("selectionFollowsActiveCell", true);
+
       grid.style.height = "100%";
       grid.style.width = "100%";
 
@@ -62,6 +72,7 @@ const DataGrid: React.FC<DataGridProps> = ({ data, setSelectedCell }) => {
       grid.addEventListener("click", (e: any) => {
         if (!e.cell) return;
         if (e.cell.rowIndex == -1) return;
+
         console.log(e.cell);
         console.log(e.cell.rowIndex, e.cell.columnIndex);
         console.log(selectedData[e.cell.rowIndex][e.cell.columnIndex]);
