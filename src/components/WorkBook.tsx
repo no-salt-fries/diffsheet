@@ -4,9 +4,21 @@ import DataGrid from "./DataGrid";
 interface WorkBookProps {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectedCell: React.Dispatch<React.SetStateAction<any>>;
+  setFixValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
+  setCompValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
+  selectingTargetRef: React.RefObject<{
+    type: "fix" | "comp";
+    field: "key" | number;
+  } | null>;
 }
 
-const WorkBook: React.FC<WorkBookProps> = ({ setLoading, setSelectedCell }) => {
+const WorkBook: React.FC<WorkBookProps> = ({
+  setLoading,
+  setSelectedCell,
+  selectingTargetRef,
+  setFixValue,
+  setCompValue,
+}) => {
   const [data, setData] = useState<Record<string, any> | null>(null);
 
   const fileChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,7 +72,15 @@ const WorkBook: React.FC<WorkBookProps> = ({ setLoading, setSelectedCell }) => {
       <div>
         <input type="file" onChange={fileChangeHandler} />
       </div>
-      {data && <DataGrid data={data} setSelectedCell={setSelectedCell} />}
+      {data && (
+        <DataGrid
+          data={data}
+          setSelectedCell={setSelectedCell}
+          selectingTargetRef={selectingTargetRef}
+          setFixValue={setFixValue}
+          setCompValue={setCompValue}
+        />
+      )}
     </div>
   );
 };

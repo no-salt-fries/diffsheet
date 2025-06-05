@@ -5,14 +5,27 @@ import canvasDatagrid from "canvas-datagrid";
 interface DataGridProps {
   data: Record<string, any>;
   setSelectedCell: React.Dispatch<React.SetStateAction<any>>;
+  setFixValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
+  setCompValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
+  selectingTargetRef: React.RefObject<{
+    type: "fix" | "comp";
+    field: "key" | number;
+  } | null>;
 }
 
-const DataGrid: React.FC<DataGridProps> = ({ data, setSelectedCell }) => {
+const DataGrid: React.FC<DataGridProps> = ({
+  data,
+  setSelectedCell,
+  selectingTargetRef,
+  setFixValue,
+  setCompValue,
+}) => {
   const sheetNames = data["SheetNames"];
   const sheets = data["Sheets"];
 
   const [sheetName, setSheetName] = useState<string>(sheetNames[0]);
 
+  // sheetName, sheets변화를 제외한 부모 Component의 state변화 무시
   const selectedData = useMemo(() => {
     return utils.sheet_to_json(sheets[sheetName], {
       header: 1,
@@ -69,7 +82,12 @@ const DataGrid: React.FC<DataGridProps> = ({ data, setSelectedCell }) => {
       //     e.preventDefault();
       //   });
 
+      //   grid.addEventListener("rendercell", (e: any) => {
+      //     console.log("rendercell");
+      //   });
+
       grid.addEventListener("click", (e: any) => {
+        console.log("click");
         if (!e.cell) return;
         if (e.cell.rowIndex == -1) return;
 
@@ -81,11 +99,57 @@ const DataGrid: React.FC<DataGridProps> = ({ data, setSelectedCell }) => {
         // e.cell.rowIndex + 1
         // e.cell.columnIndex
 
-        setSelectedCell(
-          `${e.cell.header.title}${e.cell.rowIndex + 1}:${
-            selectedData[e.cell.rowIndex][e.cell.columnIndex]
-          }`
-        );
+        // setSelectedCell(
+        //   `${e.cell.header.title}${e.cell.rowIndex + 1}:${
+        //     selectedData[e.cell.rowIndex][e.cell.columnIndex]
+        //   }`
+        // );
+
+        console.log(selectingTargetRef.current);
+
+        if (selectingTargetRef.current?.type === "fix") {
+          if (selectingTargetRef.current?.field === "key") {
+            setFixValue((prev) => ({
+              ...prev,
+              key: selectedData[e.cell.rowIndex][e.cell.columnIndex],
+            }));
+          } else {
+            const field = selectingTargetRef.current?.field;
+            if (field !== undefined) {
+              setFixValue((prev) => {
+                const newArr = [...prev.value];
+                newArr[field] =
+                  selectedData[e.cell.rowIndex][e.cell.columnIndex];
+
+                return {
+                  ...prev,
+                  value: newArr,
+                };
+              });
+            }
+          }
+        } else {
+          if (selectingTargetRef.current?.field === "key") {
+            setCompValue((prev) => ({
+              ...prev,
+              key: selectedData[e.cell.rowIndex][e.cell.columnIndex],
+            }));
+          } else {
+            const field = selectingTargetRef.current?.field;
+            if (field !== undefined) {
+              setCompValue((prev) => {
+                const newArr = [...prev.value];
+                newArr[field] =
+                  selectedData[e.cell.rowIndex][e.cell.columnIndex];
+
+                return {
+                  ...prev,
+                  value: newArr,
+                };
+              });
+            }
+          }
+        }
       });
 
       grid.data = selectedData;
