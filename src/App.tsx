@@ -1,8 +1,11 @@
 import { useRef, useState } from "react";
 import "./App.css";
 import WorkBook from "./components/WorkBook";
+import MenuDiv from "./components/UI/menuDiv";
 
 const App = () => {
+  const [loading, setLoading] = useState<boolean>(false);
+
   // canvas-datagrid용 ref
   const selectingTargetRef = useRef<null | {
     type: "fix" | "comp";
@@ -14,20 +17,25 @@ const App = () => {
     field: "key" | number;
   }>(null);
 
-  const [loading, setLoading] = useState<boolean>(false);
+  const [leftWbData, setLeftWbData] = useState<Record<string, any> | null>(
+    null
+  );
 
+  const [rightWbData, setRightWbData] = useState<Record<string, any> | null>(
+    null
+  );
+
+  // key: {sheet: , cell: :, value: }
+  // value: [{sheet: , cell: , value: }, ... ]
   const [fixValue, setFixValue] = useState<Record<string, any>>({
-    key: null,
-    value: [null],
+    key: { workbookId: null, cell: null, value: null },
+    value: [{ workbookId: null, cell: null, value: null }],
   });
 
   const [compValue, setCompValue] = useState<Record<string, any>>({
-    key: null,
-    value: [null],
+    key: { workbookId: null, cell: null, value: null },
+    value: [{ workbookId: null, cell: null, value: null }],
   });
-
-  const [selectedCell, setSelectedCell] = useState<any>(null);
-  const [selectedCellRight, setSelectedCellRight] = useState<any>(null);
 
   const handleTargetClick = (type: "fix" | "comp", field: "key" | number) => {
     if (selectingTarget?.type === type && selectingTarget?.field === field) {
@@ -46,9 +54,7 @@ const App = () => {
           <p>고정</p>
           <div className="flex">
             <div className="w-[50px]">key</div>
-            <div className="px-1 w-[300px] border-1 mr-5 text-base leading-[1rem] flex items-center">
-              {fixValue["key"]}
-            </div>
+            <MenuDiv>{fixValue["key"]["value"]}</MenuDiv>
             <button
               className={`px-4 ${
                 selectingTarget?.type === "fix" &&
@@ -64,7 +70,7 @@ const App = () => {
           {fixValue["value"].map((d: any, i: number) => (
             <div className="flex mt-1" key={i}>
               <div className="w-[50px]">{`값_${i + 1}`}</div>
-              <div className="w-[300px] border-1 mr-5">{d}</div>
+              <MenuDiv>{d["value"]}</MenuDiv>
               <button
                 className={`px-4 ${
                   selectingTarget?.type === "fix" &&
@@ -83,7 +89,7 @@ const App = () => {
         <div className="mt-1">
           <div className="flex">
             <div className="w-[50px]">key</div>
-            <div className="w-[300px] border-1 mr-5">{compValue["key"]}</div>
+            <MenuDiv>{compValue["key"]["value"]}</MenuDiv>
             <button
               className={`px-4 ${
                 selectingTarget?.type === "comp" &&
@@ -99,7 +105,7 @@ const App = () => {
           {compValue["value"].map((d: any, i: number) => (
             <div className="flex mt-1" key={i}>
               <div className="w-[50px]">{`값_${i + 1}`}</div>
-              <div className="w-[300px] border-1 mr-5">{d}</div>
+              <MenuDiv>{d["value"]}</MenuDiv>
               <button
                 className={`px-4 ${
                   selectingTarget?.type === "comp" &&
@@ -114,15 +120,14 @@ const App = () => {
             </div>
           ))}
         </div>
-        <div>{selectedCell && `Left: ${selectedCell}`}</div>
-        <div>{selectedCellRight && `Right: ${selectedCellRight}`}</div>
       </div>
 
       <div className="flex flex-1 w-full">
         <div className="w-1/2">
           <WorkBook
+            data={leftWbData}
+            setData={setLeftWbData}
             setLoading={setLoading}
-            setSelectedCell={setSelectedCell}
             selectingTargetRef={selectingTargetRef}
             setFixValue={setFixValue}
             setCompValue={setCompValue}
@@ -130,8 +135,9 @@ const App = () => {
         </div>
         <div className="w-1/2">
           <WorkBook
+            data={rightWbData}
+            setData={setRightWbData}
             setLoading={setLoading}
-            setSelectedCell={setSelectedCellRight}
             selectingTargetRef={selectingTargetRef}
             setFixValue={setFixValue}
             setCompValue={setCompValue}

@@ -1,9 +1,12 @@
+import { v4 as uuidv4 } from "uuid";
+
 import React, { useState } from "react";
 import DataGrid from "./DataGrid";
 
 interface WorkBookProps {
+  data: Record<string, any> | null;
+  setData: React.Dispatch<React.SetStateAction<Record<string, any> | null>>;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  setSelectedCell: React.Dispatch<React.SetStateAction<any>>;
   setFixValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
   setCompValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
   selectingTargetRef: React.RefObject<{
@@ -13,14 +16,13 @@ interface WorkBookProps {
 }
 
 const WorkBook: React.FC<WorkBookProps> = ({
+  data,
+  setData,
   setLoading,
-  setSelectedCell,
   selectingTargetRef,
   setFixValue,
   setCompValue,
 }) => {
-  const [data, setData] = useState<Record<string, any> | null>(null);
-
   const fileChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -55,6 +57,7 @@ const WorkBook: React.FC<WorkBookProps> = ({
         setLoading(false);
 
         if (e.data.success) {
+          e.data.workbook.Custprops = { id: uuidv4() };
           setData(e.data.workbook);
         } else {
           console.error("Worker error:", e.data.error);
@@ -75,7 +78,6 @@ const WorkBook: React.FC<WorkBookProps> = ({
       {data && (
         <DataGrid
           data={data}
-          setSelectedCell={setSelectedCell}
           selectingTargetRef={selectingTargetRef}
           setFixValue={setFixValue}
           setCompValue={setCompValue}
@@ -85,4 +87,5 @@ const WorkBook: React.FC<WorkBookProps> = ({
   );
 };
 
-export default WorkBook;
+// data가 바뀔 때를 제외하고는 WB 랜더링X
+export default React.memo(WorkBook, (prev, next) => prev.data === next.data);

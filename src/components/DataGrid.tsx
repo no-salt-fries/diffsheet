@@ -4,7 +4,6 @@ import canvasDatagrid from "canvas-datagrid";
 
 interface DataGridProps {
   data: Record<string, any>;
-  setSelectedCell: React.Dispatch<React.SetStateAction<any>>;
   setFixValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
   setCompValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
   selectingTargetRef: React.RefObject<{
@@ -15,7 +14,6 @@ interface DataGridProps {
 
 const DataGrid: React.FC<DataGridProps> = ({
   data,
-  setSelectedCell,
   selectingTargetRef,
   setFixValue,
   setCompValue,
@@ -38,8 +36,6 @@ const DataGrid: React.FC<DataGridProps> = ({
   const gridRef = useRef<any>(null);
 
   useEffect(() => {
-    setSelectedCell(null);
-
     if (containerRef.current) {
       if (gridRef.current) {
         /*
@@ -91,64 +87,51 @@ const DataGrid: React.FC<DataGridProps> = ({
         if (!e.cell) return;
         if (e.cell.rowIndex == -1) return;
 
-        console.log(e.cell);
-        console.log(e.cell.rowIndex, e.cell.columnIndex);
-        console.log(selectedData[e.cell.rowIndex][e.cell.columnIndex]);
+        const workbookId = data["Custprops"]["id"];
+        const rowIndex = e.cell.rowIndex;
+        const columnIndex = e.cell.columnIndex;
+        const cellIndex = `${rowIndex}:${columnIndex}`;
+        const cellValue = selectedData[e.cell.rowIndex][e.cell.columnIndex];
 
-        // e.cell.header.title
-        // e.cell.rowIndex + 1
-        // e.cell.columnIndex
+        const handleValueUpdate = (
+          targetType: "fix" | "comp",
+          field: "key" | number | undefined
+        ) => {
+          const setValue = targetType === "fix" ? setFixValue : setCompValue;
 
-        // setSelectedCell(
-        //   `${e.cell.header.title}${e.cell.rowIndex + 1}:${
-        //     selectedData[e.cell.rowIndex][e.cell.columnIndex]
-        //   }`
-        // );
-
-        console.log(selectingTargetRef.current);
-
-        if (selectingTargetRef.current?.type === "fix") {
-          if (selectingTargetRef.current?.field === "key") {
-            setFixValue((prev) => ({
+          if (field === "key") {
+            setValue((prev) => ({
               ...prev,
-              key: selectedData[e.cell.rowIndex][e.cell.columnIndex],
+              key: { workbookId, cell: cellIndex, value: cellValue },
             }));
-          } else {
-            const field = selectingTargetRef.current?.field;
-            if (field !== undefined) {
-              setFixValue((prev) => {
-                const newArr = [...prev.value];
-                newArr[field] =
-                  selectedData[e.cell.rowIndex][e.cell.columnIndex];
+          } else if (field !== undefined) {
+            setValue((prev) => {
+              const keySheetId = prev.key?.workbookId;
+              const newArr = [...prev.value];
 
-                return {
-                  ...prev,
-                  value: newArr,
-                };
-              });
-            }
-          }
-        } else {
-          if (selectingTargetRef.current?.field === "key") {
-            setCompValue((prev) => ({
-              ...prev,
-              key: selectedData[e.cell.rowIndex][e.cell.columnIndex],
-            }));
-          } else {
-            const field = selectingTargetRef.current?.field;
-            if (field !== undefined) {
-              setCompValue((prev) => {
-                const newArr = [...prev.value];
-                newArr[field] =
-                  selectedData[e.cell.rowIndex][e.cell.columnIndex];
+              if (keySheetId && keySheetId !== workbookId) {
+                window.alert("같은 workbook에서 데이터를 선택하세요");
+                return prev;
+              }
 
-                return {
-                  ...prev,
-                  value: newArr,
-                };
-              });
-            }
+              newArr[field] = {
+                workbookId,
+                cell: cellIndex,
+                value: cellValue,
+              };
+
+              return {
+                ...prev,
+                value: newArr,
+              };
+            });
           }
+        };
+
+        const target = selectingTargetRef.current;
+
+        if (target) {
+          handleValueUpdate(target.type, target.field);
         }
       });
 
