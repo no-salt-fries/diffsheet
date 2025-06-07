@@ -1,13 +1,13 @@
 /* type for selected data */
 
 export interface metaType {
-  workbookId: string;
-  sheetName: string;
+  workbookId: string | null;
+  sheetName: string | null;
 }
 
 export interface cellType {
-  cell: string;
-  value: string;
+  cell: string | null;
+  value: string | null;
 }
 
 export interface selectedDataType {

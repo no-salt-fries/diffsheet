@@ -90,7 +90,7 @@ const DataGrid: React.FC<DataGridProps> = ({
         const workbookId = data["Custprops"]["id"];
 
         const target = Object.entries(dataRef.current).find(
-          ([, entry]) => entry["key"]["workbookId"] === workbookId
+          ([, entry]) => entry["meta"]["workbookId"] === workbookId
         );
         if (target) {
           const cellInfo = target[1]["key"]["cell"];
@@ -136,20 +136,22 @@ const DataGrid: React.FC<DataGridProps> = ({
           const setValue = targetType === "fix" ? setFixValue : setCompValue;
 
           if (field === "key") {
-            setValue((prev) => ({
-              ...prev,
-              key: { workbookId, cell: cellIndex, value: cellValue },
-            }));
+            setValue({
+              meta: { workbookId, sheetName },
+              key: { cell: cellIndex, value: cellValue },
+              value: [{ cell: null, value: null }],
+            });
 
             dataRef.current = {
               ...dataRef.current,
               [targetType]: {
-                ...dataRef.current[targetType],
-                key: { workbookId, cell: cellIndex, value: cellValue },
+                meta: { workbookId, sheetName },
+                key: { cell: cellIndex, value: cellValue },
+                value: [{ cell: null, value: null }],
               },
             };
           } else if (field !== undefined) {
-            const keySheetId = dataRef.current[targetType]["key"].workbookId;
+            const keySheetId = dataRef.current[targetType]["meta"].workbookId;
 
             if (keySheetId && keySheetId !== workbookId) {
               window.alert("같은 workbook에서 데이터를 선택하세요");
@@ -160,7 +162,6 @@ const DataGrid: React.FC<DataGridProps> = ({
               const newArr = [...prev.value];
 
               newArr[field] = {
-                workbookId,
                 cell: cellIndex,
                 value: cellValue,
               };
@@ -173,7 +174,6 @@ const DataGrid: React.FC<DataGridProps> = ({
 
             const refArr = [...dataRef.current[targetType]["value"]];
             refArr[field] = {
-              workbookId,
               cell: cellIndex,
               value: cellValue,
             };

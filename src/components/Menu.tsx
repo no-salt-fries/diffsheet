@@ -8,6 +8,7 @@ interface MenuDivProps {
     field: "key" | number;
   } | null;
   handleTargetClick: (type: "fix" | "comp", field: "key" | number) => void;
+  runCompare: () => void;
 }
 
 const Menu = ({
@@ -15,6 +16,7 @@ const Menu = ({
   compValue,
   selectingTarget,
   handleTargetClick,
+  runCompare,
 }: MenuDivProps) => {
   return (
     <div className="flex justify-center">
@@ -90,7 +92,10 @@ const Menu = ({
         </div>
       </div>
       <div className="flex flex-col justify-end mr-20">
-        <div className="w-[300px] h-[60px] flex flex-col justify-center text-center bg-red-400 rounded-2xl">
+        <div
+          className="w-[300px] h-[60px] flex flex-col justify-center text-center bg-red-400 rounded-2xl"
+          onClick={runCompare}
+        >
           비교
         </div>
       </div>
