@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
-import "./App.css";
 import WorkBook from "./components/WorkBook";
-import MenuDiv from "./components/UI/MenuDiv";
+import Menu from "./components/Menu";
+
+import "./App.css";
 
 import type { workbookDataType } from "./types";
-import Menu from "./components/Menu";
 
 const App = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -30,12 +30,14 @@ const App = () => {
 
   const dataRef = useRef<workbookDataType>({
     fix: {
-      key: { workbookId: "", cell: "", value: "" },
-      value: [{ workbookId: "", cell: "", value: "" }],
+      meta: { workbookId: "", sheetName: "" },
+      key: { cell: "", value: "" },
+      value: [{ cell: "", value: "" }],
     },
     comp: {
-      key: { workbookId: "", cell: "", value: "" },
-      value: [{ workbookId: "", cell: "", value: "" }],
+      meta: { workbookId: "", sheetName: "" },
+      key: { cell: "", value: "" },
+      value: [{ cell: "", value: "" }],
     },
   });
 
