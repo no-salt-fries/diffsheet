@@ -1,10 +1,21 @@
 import { useRef, useState } from "react";
 import "./App.css";
 import WorkBook from "./components/WorkBook";
-import MenuDiv from "./components/UI/menuDiv";
+import MenuDiv from "./components/UI/MenuDiv";
+
+import type { workbookDataType } from "./types";
+import Menu from "./components/Menu";
 
 const App = () => {
   const [loading, setLoading] = useState<boolean>(false);
+
+  const [leftWbData, setLeftWbData] = useState<Record<string, any> | null>(
+    null
+  );
+
+  const [rightWbData, setRightWbData] = useState<Record<string, any> | null>(
+    null
+  );
 
   // canvas-datagrid용 ref
   const selectingTargetRef = useRef<null | {
@@ -17,16 +28,18 @@ const App = () => {
     field: "key" | number;
   }>(null);
 
-  const [leftWbData, setLeftWbData] = useState<Record<string, any> | null>(
-    null
-  );
+  const dataRef = useRef<workbookDataType>({
+    fix: {
+      key: { workbookId: "", cell: "", value: "" },
+      value: [{ workbookId: "", cell: "", value: "" }],
+    },
+    comp: {
+      key: { workbookId: "", cell: "", value: "" },
+      value: [{ workbookId: "", cell: "", value: "" }],
+    },
+  });
 
-  const [rightWbData, setRightWbData] = useState<Record<string, any> | null>(
-    null
-  );
-
-  // key: {sheet: , cell: :, value: }
-  // value: [{sheet: , cell: , value: }, ... ]
+  // fixValue, compValue는 Menu에서만 사용, 나머지 component에서 리랜더링 방지처리하기
   const [fixValue, setFixValue] = useState<Record<string, any>>({
     key: { workbookId: null, cell: null, value: null },
     value: [{ workbookId: null, cell: null, value: null }],
@@ -49,85 +62,19 @@ const App = () => {
 
   return (
     <div className="flex flex-col">
-      <div>
-        <div>
-          <p>고정</p>
-          <div className="flex">
-            <div className="w-[50px]">key</div>
-            <MenuDiv>{fixValue["key"]["value"]}</MenuDiv>
-            <button
-              className={`px-4 ${
-                selectingTarget?.type === "fix" &&
-                selectingTarget?.field === "key"
-                  ? "bg-stone-600 text-white"
-                  : ""
-              }`}
-              onClick={() => handleTargetClick("fix", "key")}
-            >
-              선택
-            </button>
-          </div>
-          {fixValue["value"].map((d: any, i: number) => (
-            <div className="flex mt-1" key={i}>
-              <div className="w-[50px]">{`값_${i + 1}`}</div>
-              <MenuDiv>{d["value"]}</MenuDiv>
-              <button
-                className={`px-4 ${
-                  selectingTarget?.type === "fix" &&
-                  selectingTarget?.field !== "key"
-                    ? "bg-stone-600 text-white"
-                    : ""
-                }`}
-                onClick={() => handleTargetClick("fix", i)}
-              >
-                선택
-              </button>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-1">
-          <div className="flex">
-            <div className="w-[50px]">key</div>
-            <MenuDiv>{compValue["key"]["value"]}</MenuDiv>
-            <button
-              className={`px-4 ${
-                selectingTarget?.type === "comp" &&
-                selectingTarget?.field === "key"
-                  ? "bg-stone-600 text-white"
-                  : ""
-              }`}
-              onClick={() => handleTargetClick("comp", "key")}
-            >
-              선택
-            </button>
-          </div>
-          {compValue["value"].map((d: any, i: number) => (
-            <div className="flex mt-1" key={i}>
-              <div className="w-[50px]">{`값_${i + 1}`}</div>
-              <MenuDiv>{d["value"]}</MenuDiv>
-              <button
-                className={`px-4 ${
-                  selectingTarget?.type === "comp" &&
-                  selectingTarget?.field !== "key"
-                    ? "bg-stone-600 text-white"
-                    : ""
-                }`}
-                onClick={() => handleTargetClick("comp", i)}
-              >
-                선택
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-
+      <Menu
+        fixValue={fixValue}
+        compValue={compValue}
+        selectingTarget={selectingTarget}
+        handleTargetClick={handleTargetClick}
+      />
       <div className="flex flex-1 w-full">
         <div className="w-1/2">
           <WorkBook
             data={leftWbData}
             setData={setLeftWbData}
             setLoading={setLoading}
+            dataRef={dataRef}
             selectingTargetRef={selectingTargetRef}
             setFixValue={setFixValue}
             setCompValue={setCompValue}
@@ -138,6 +85,7 @@ const App = () => {
             data={rightWbData}
             setData={setRightWbData}
             setLoading={setLoading}
+            dataRef={dataRef}
             selectingTargetRef={selectingTargetRef}
             setFixValue={setFixValue}
             setCompValue={setCompValue}

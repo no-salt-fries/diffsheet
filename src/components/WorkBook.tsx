@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import React, { useState } from "react";
 import DataGrid from "./DataGrid";
+import type { workbookDataType } from "../types";
 
 interface WorkBookProps {
   data: Record<string, any> | null;
@@ -9,6 +10,7 @@ interface WorkBookProps {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setFixValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
   setCompValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
+  dataRef: React.RefObject<workbookDataType>;
   selectingTargetRef: React.RefObject<{
     type: "fix" | "comp";
     field: "key" | number;
@@ -19,6 +21,7 @@ const WorkBook: React.FC<WorkBookProps> = ({
   data,
   setData,
   setLoading,
+  dataRef,
   selectingTargetRef,
   setFixValue,
   setCompValue,
@@ -78,6 +81,7 @@ const WorkBook: React.FC<WorkBookProps> = ({
       {data && (
         <DataGrid
           data={data}
+          dataRef={dataRef}
           selectingTargetRef={selectingTargetRef}
           setFixValue={setFixValue}
           setCompValue={setCompValue}

@@ -2,10 +2,13 @@ import { utils } from "xlsx";
 import React, { useRef, useEffect, useState, useMemo } from "react";
 import canvasDatagrid from "canvas-datagrid";
 
+import type { workbookDataType } from "../types";
+
 interface DataGridProps {
   data: Record<string, any>;
   setFixValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
   setCompValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
+  dataRef: React.RefObject<workbookDataType>;
   selectingTargetRef: React.RefObject<{
     type: "fix" | "comp";
     field: "key" | number;
@@ -14,6 +17,7 @@ interface DataGridProps {
 
 const DataGrid: React.FC<DataGridProps> = ({
   data,
+  dataRef,
   selectingTargetRef,
   setFixValue,
   setCompValue,
@@ -74,13 +78,45 @@ const DataGrid: React.FC<DataGridProps> = ({
       containerRef.current.style.width = "100%";
       containerRef.current.style.height = window.innerHeight - 200 + "px";
 
-      //   grid.addEventListener("beforesortcolumn", (e: any) => {
-      //     e.preventDefault();
-      //   });
+      grid.addEventListener("beforesortcolumn", (e: any) => {
+        e.preventDefault();
+      });
 
-      //   grid.addEventListener("rendercell", (e: any) => {
-      //     console.log("rendercell");
-      //   });
+      grid.addEventListener("rendercell", (e: any) => {
+        // type: fix | comp
+        // field: key
+        // 값이 존재하는 경우에는 해당 cell에 색을 설정
+
+        const workbookId = data["Custprops"]["id"];
+
+        const target = Object.entries(dataRef.current).find(
+          ([, entry]) => entry["key"]["workbookId"] === workbookId
+        );
+        if (target) {
+          const cellInfo = target[1]["key"]["cell"];
+          const rowIndex = parseInt(cellInfo.split(":")[0]);
+
+          if (e.cell.rowIndex === rowIndex) {
+            e.ctx.fillStyle = "#AEEDCF";
+          }
+        }
+
+        // const target = selectingTargetRef.current;
+        // const targetType = target?.type;
+        // const targetField = target?.field;
+
+        // if (targetType && targetField && targetField === "key") {
+        //   if (dataRef.current[targetType]["key"]["workbookId"] === workbookId) {
+        //     const selectedCellInfo =
+        //       dataRef.current[targetType][targetField]["cell"];
+        //     const rowIndex = selectedCellInfo.split(":")[0];
+
+        //     if (e.cell.rowIndex === parseInt(rowIndex)) {
+        //       e.ctx.fillStyle = "#AEEDCF";
+        //     }
+        //   }
+        // }
+      });
 
       grid.addEventListener("click", (e: any) => {
         console.log("click");
@@ -104,15 +140,24 @@ const DataGrid: React.FC<DataGridProps> = ({
               ...prev,
               key: { workbookId, cell: cellIndex, value: cellValue },
             }));
-          } else if (field !== undefined) {
-            setValue((prev) => {
-              const keySheetId = prev.key?.workbookId;
-              const newArr = [...prev.value];
 
-              if (keySheetId && keySheetId !== workbookId) {
-                window.alert("같은 workbook에서 데이터를 선택하세요");
-                return prev;
-              }
+            dataRef.current = {
+              ...dataRef.current,
+              [targetType]: {
+                ...dataRef.current[targetType],
+                key: { workbookId, cell: cellIndex, value: cellValue },
+              },
+            };
+          } else if (field !== undefined) {
+            const keySheetId = dataRef.current[targetType]["key"].workbookId;
+
+            if (keySheetId && keySheetId !== workbookId) {
+              window.alert("같은 workbook에서 데이터를 선택하세요");
+              return;
+            }
+
+            setValue((prev) => {
+              const newArr = [...prev.value];
 
               newArr[field] = {
                 workbookId,
@@ -125,6 +170,18 @@ const DataGrid: React.FC<DataGridProps> = ({
                 value: newArr,
               };
             });
+
+            const refArr = [...dataRef.current[targetType]["value"]];
+            refArr[field] = {
+              workbookId,
+              cell: cellIndex,
+              value: cellValue,
+            };
+
+            dataRef.current = {
+              ...dataRef.current,
+              [targetType]: { ...dataRef.current[targetType], value: refArr },
+            };
           }
         };
 
