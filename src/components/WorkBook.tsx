@@ -13,7 +13,7 @@ interface WorkBookProps {
   dataRef: React.RefObject<workbookDataType>;
   selectingTargetRef: React.RefObject<{
     type: "fix" | "comp";
-    field: "key" | number;
+    field: "key_start" | "key_end" | number;
   } | null>;
 }
 

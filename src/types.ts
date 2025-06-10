@@ -12,7 +12,7 @@ export interface cellType {
 
 export interface selectedDataType {
   meta: metaType;
-  key: cellType;
+  key: { start: cellType; end: cellType };
   value: cellType[];
 }
 

@@ -20,41 +20,61 @@ const App = () => {
   // canvas-datagrid용 ref
   const selectingTargetRef = useRef<null | {
     type: "fix" | "comp";
-    field: "key" | number;
+    field: "key_start" | "key_end" | number;
   }>(null);
 
   const [selectingTarget, setSelectingTarget] = useState<null | {
     type: "fix" | "comp";
-    field: "key" | number;
+    field: "key_start" | "key_end" | number;
   }>(null);
 
+  // key: {start: {cell: null, value: null}, end: {cell: null, value: null}} 수정하기
+  // value: [{cell: null}] 수정하기
+
+  // 시작, 끝 key값을 받고 열 인덱스를 받기
+  // 이게 직관적으로 어떤 데이터를 선택했는지 확인이 쉬울 것 같다고 판단
   const dataRef = useRef<workbookDataType>({
     fix: {
       meta: { workbookId: null, sheetName: null },
-      key: { cell: null, value: null },
+      key: {
+        start: { cell: null, value: null },
+        end: { cell: null, value: null },
+      },
       value: [{ cell: null, value: null }],
     },
     comp: {
       meta: { workbookId: null, sheetName: null },
-      key: { cell: null, value: null },
+      key: {
+        start: { cell: null, value: null },
+        end: { cell: null, value: null },
+      },
       value: [{ cell: null, value: null }],
     },
   });
 
   // fixValue, compValue는 Menu에서만 사용, 나머지 component에서 리랜더링 방지처리하기
   const [fixValue, setFixValue] = useState<Record<string, any>>({
-    mata: { WorkbookId: null, sheetName: null },
-    key: { cell: null, value: null },
+    meta: { workbookId: null, sheetName: null },
+    key: {
+      start: { cell: null, value: null },
+      end: { cell: null, value: null },
+    },
     value: [{ cell: null, value: null }],
   });
 
   const [compValue, setCompValue] = useState<Record<string, any>>({
-    mata: { WorkbookId: null, sheetName: null },
-    key: { cell: null, value: null },
+    meta: { workbookId: null, sheetName: null },
+    key: {
+      start: { cell: null, value: null },
+      end: { cell: null, value: null },
+    },
     value: [{ cell: null, value: null }],
   });
 
-  const handleTargetClick = (type: "fix" | "comp", field: "key" | number) => {
+  const handleTargetClick = (
+    type: "fix" | "comp",
+    field: "key_start" | "key_end" | number
+  ) => {
     if (selectingTarget?.type === type && selectingTarget?.field === field) {
       setSelectingTarget(null); // 다시 클릭하면 해제
       selectingTargetRef.current = null;
@@ -155,13 +175,14 @@ const App = () => {
       f_valueColumnIndex
     );
 
-    // const selected_c_data = selectedData(
-    //   c_data,
-    //   c_keyColumnIndex,
-    //   c_valueColumnIndex
-    // );
+    const selected_c_data = selectedData(
+      c_data,
+      c_keyColumnIndex,
+      c_valueColumnIndex
+    );
 
     console.log(selected_f_data);
+    console.log(selected_c_data);
   };
 
   return (
