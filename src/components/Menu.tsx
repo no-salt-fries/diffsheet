@@ -71,15 +71,12 @@ const Menu = ({
               <div className="w-[50px]">{`열_${i + 1}`}</div>
               <MenuDiv>{d["value"]}</MenuDiv>
               <button
-                disabled={
-                  i === 0
-                    ? !fixValue["key"]["start"]["value"]
-                    : !fixValue["value"][i]["value"]
-                }
+                disabled={!fixValue["key"]["end"]["value"]}
                 className={`px-4 ${
                   selectingTarget?.type === "fix" &&
                   selectingTarget?.field !== "key_start" &&
-                  selectingTarget?.field !== "key_end"
+                  selectingTarget?.field !== "key_end" &&
+                  selectingTarget?.field === i
                     ? "bg-stone-600 text-white"
                     : ""
                 }`}
@@ -135,15 +132,12 @@ const Menu = ({
               <div className="w-[50px]">{`열_${i + 1}`}</div>
               <MenuDiv>{d["value"]}</MenuDiv>
               <button
-                disabled={
-                  i === 0
-                    ? !compValue["key"]["start"]["value"]
-                    : !compValue["value"][i]["value"]
-                }
+                disabled={!compValue["key"]["end"]["value"]}
                 className={`px-4 ${
                   selectingTarget?.type === "comp" &&
                   selectingTarget?.field !== "key_start" &&
-                  selectingTarget?.field !== "key_end"
+                  selectingTarget?.field !== "key_end" &&
+                  selectingTarget?.field === i
                     ? "bg-stone-600 text-white"
                     : ""
                 }`}

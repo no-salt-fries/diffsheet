@@ -10,10 +10,14 @@ export interface cellType {
   value: string | null;
 }
 
+export interface valueCellType extends cellType {
+  id: number;
+}
+
 export interface selectedDataType {
   meta: metaType;
   key: { start: cellType; end: cellType };
-  value: cellType[];
+  value: valueCellType[];
 }
 
 export interface workbookDataType {

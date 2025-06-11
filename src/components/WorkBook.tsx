@@ -15,6 +15,8 @@ interface WorkBookProps {
     type: "fix" | "comp";
     field: "key_start" | "key_end" | number;
   } | null>;
+  sheetChangeButtonDisable: boolean;
+  setButtonDisable: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const WorkBook: React.FC<WorkBookProps> = ({
@@ -23,6 +25,8 @@ const WorkBook: React.FC<WorkBookProps> = ({
   setLoading,
   dataRef,
   selectingTargetRef,
+  sheetChangeButtonDisable,
+  setButtonDisable,
   setFixValue,
   setCompValue,
 }) => {
@@ -83,6 +87,8 @@ const WorkBook: React.FC<WorkBookProps> = ({
           data={data}
           dataRef={dataRef}
           selectingTargetRef={selectingTargetRef}
+          sheetChangeButtonDisable={sheetChangeButtonDisable}
+          setButtonDisable={setButtonDisable}
           setFixValue={setFixValue}
           setCompValue={setCompValue}
         />
@@ -92,4 +98,9 @@ const WorkBook: React.FC<WorkBookProps> = ({
 };
 
 // data가 바뀔 때를 제외하고는 WB 랜더링X
-export default React.memo(WorkBook, (prev, next) => prev.data === next.data);
+export default React.memo(
+  WorkBook,
+  (prev, next) =>
+    prev.data === next.data &&
+    prev.sheetChangeButtonDisable == next.sheetChangeButtonDisable
+);

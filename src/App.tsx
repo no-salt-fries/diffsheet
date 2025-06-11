@@ -17,6 +17,8 @@ const App = () => {
     null
   );
 
+  const [sheetChangeButtonDisable, setButtonDisable] = useState<boolean>(false);
+
   // canvas-datagrid용 ref
   const selectingTargetRef = useRef<null | {
     type: "fix" | "comp";
@@ -40,7 +42,11 @@ const App = () => {
         start: { cell: null, value: null },
         end: { cell: null, value: null },
       },
-      value: [{ cell: null, value: null }],
+      value: [
+        { id: 1, cell: null, value: null },
+        { id: 2, cell: null, value: null },
+        { id: 3, cell: null, value: null },
+      ],
     },
     comp: {
       meta: { workbookId: null, sheetName: null },
@@ -48,7 +54,11 @@ const App = () => {
         start: { cell: null, value: null },
         end: { cell: null, value: null },
       },
-      value: [{ cell: null, value: null }],
+      value: [
+        { id: 1, cell: null, value: null },
+        { id: 2, cell: null, value: null },
+        { id: 3, cell: null, value: null },
+      ],
     },
   });
 
@@ -59,7 +69,11 @@ const App = () => {
       start: { cell: null, value: null },
       end: { cell: null, value: null },
     },
-    value: [{ cell: null, value: null }],
+    value: [
+      { id: 1, cell: null, value: null },
+      { id: 2, cell: null, value: null },
+      { id: 3, cell: null, value: null },
+    ],
   });
 
   const [compValue, setCompValue] = useState<Record<string, any>>({
@@ -68,7 +82,11 @@ const App = () => {
       start: { cell: null, value: null },
       end: { cell: null, value: null },
     },
-    value: [{ cell: null, value: null }],
+    value: [
+      { id: 1, cell: null, value: null },
+      { id: 2, cell: null, value: null },
+      { id: 3, cell: null, value: null },
+    ],
   });
 
   const handleTargetClick = (
@@ -202,6 +220,8 @@ const App = () => {
             setLoading={setLoading}
             dataRef={dataRef}
             selectingTargetRef={selectingTargetRef}
+            sheetChangeButtonDisable={sheetChangeButtonDisable}
+            setButtonDisable={setButtonDisable}
             setFixValue={setFixValue}
             setCompValue={setCompValue}
           />
@@ -213,6 +233,8 @@ const App = () => {
             setLoading={setLoading}
             dataRef={dataRef}
             selectingTargetRef={selectingTargetRef}
+            sheetChangeButtonDisable={sheetChangeButtonDisable}
+            setButtonDisable={setButtonDisable}
             setFixValue={setFixValue}
             setCompValue={setCompValue}
           />

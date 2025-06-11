@@ -13,12 +13,16 @@ interface DataGridProps {
     type: "fix" | "comp";
     field: "key_start" | "key_end" | number;
   } | null>;
+  sheetChangeButtonDisable: boolean;
+  setButtonDisable: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const DataGrid: React.FC<DataGridProps> = ({
   data,
   dataRef,
   selectingTargetRef,
+  sheetChangeButtonDisable,
+  setButtonDisable,
   setFixValue,
   setCompValue,
 }) => {
@@ -40,6 +44,7 @@ const DataGrid: React.FC<DataGridProps> = ({
   const gridRef = useRef<any>(null);
 
   useEffect(() => {
+    // selectedData가 바뀔 때 마다 아래의 코드가 실행
     if (containerRef.current) {
       if (gridRef.current) {
         /*
@@ -82,6 +87,12 @@ const DataGrid: React.FC<DataGridProps> = ({
         e.preventDefault();
       });
 
+      const columnColorPreset = [
+        "rgb(255 0 80 / 20%)",
+        "rgb(0 25 255 / 20%)",
+        "rgb(255 246 0 / 20%)",
+      ];
+
       grid.addEventListener("rendercell", (e: any) => {
         // type: fix | comp
         // field: key
@@ -99,7 +110,24 @@ const DataGrid: React.FC<DataGridProps> = ({
 
           const startCellInfo = target[1]["key"]["start"]["cell"];
           const endCellInfo = target[1]["key"]["end"]["cell"];
-          const valueCellInfo = target[1]["value"][0]["cell"];
+
+          const valueCellInfo = target[1]["value"];
+
+          if (valueCellInfo) {
+            valueCellInfo.map((d: any, i: number) => {
+              const columnIndex = d["cell"]
+                ? parseInt(d["cell"]?.split(":")[1])
+                : -1;
+
+              if (columnIndex === -1) return;
+
+              if (e.cell.columnIndex === columnIndex) {
+                if (e.cell.rowIndex > -1) {
+                  e.ctx.fillStyle = columnColorPreset[i];
+                }
+              }
+            });
+          }
 
           if (startCellInfo) {
             const startRowIndex = parseInt(startCellInfo.split(":")[0]);
@@ -136,13 +164,6 @@ const DataGrid: React.FC<DataGridProps> = ({
               }
             }
           }
-
-          if (valueCellInfo) {
-            const columnIndex = parseInt(valueCellInfo.split(":")[1]);
-            if (e.cell.columnIndex === columnIndex) {
-              e.ctx.fillStyle = "rgb(0 55 255 / 10%)";
-            }
-          }
         }
       });
 
@@ -177,7 +198,11 @@ const DataGrid: React.FC<DataGridProps> = ({
                 start: { cell: cellIndex, value: cellValue },
                 end: { cell: null, value: null },
               },
-              value: [{ cell: null, value: null }],
+              value: [
+                { id: 1, cell: null, value: null },
+                { id: 2, cell: null, value: null },
+                { id: 3, cell: null, value: null },
+              ],
             });
 
             dataRef.current = {
@@ -188,9 +213,15 @@ const DataGrid: React.FC<DataGridProps> = ({
                   start: { cell: cellIndex, value: cellValue },
                   end: { cell: null, value: null },
                 },
-                value: [{ cell: null, value: null }],
+                value: [
+                  { id: 1, cell: null, value: null },
+                  { id: 2, cell: null, value: null },
+                  { id: 3, cell: null, value: null },
+                ],
               },
             };
+
+            setButtonDisable(true);
           } else if (field === "key_end") {
             if (e.cell.rowIndex == -1) return;
             const cellValue = selectedData[e.cell.rowIndex][e.cell.columnIndex];
@@ -244,6 +275,7 @@ const DataGrid: React.FC<DataGridProps> = ({
               const newArr = [...prev.value];
 
               newArr[field] = {
+                ...newArr[field],
                 cell: cellIndex,
                 value: cellValue,
               };
@@ -255,7 +287,9 @@ const DataGrid: React.FC<DataGridProps> = ({
             });
 
             const refArr = [...dataRef.current[targetType]["value"]];
+
             refArr[field] = {
+              ...refArr[field],
               cell: cellIndex,
               value: cellValue,
             };
@@ -282,7 +316,14 @@ const DataGrid: React.FC<DataGridProps> = ({
   return (
     <div>
       {data["SheetNames"].map((d: string, i: number) => (
-        <button key={d[i]} onClick={() => setSheetName(d)}>
+        <button
+          className={`px-4 ${
+            sheetChangeButtonDisable ? "" : "bg-stone-600 text-white"
+          }`}
+          disabled={sheetChangeButtonDisable}
+          key={d[i]}
+          onClick={() => setSheetName(d)}
+        >
           {d}
         </button>
       ))}
