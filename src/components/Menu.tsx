@@ -71,7 +71,11 @@ const Menu = ({
               <div className="w-[50px]">{`열_${i + 1}`}</div>
               <MenuDiv>{d["value"]}</MenuDiv>
               <button
-                disabled={!fixValue["key"]["end"]["value"]}
+                disabled={
+                  i === 0
+                    ? !fixValue["key"]["end"]["value"]
+                    : !fixValue["value"][i - 1]["value"]
+                }
                 className={`px-4 ${
                   selectingTarget?.type === "fix" &&
                   selectingTarget?.field !== "key_start" &&
@@ -132,7 +136,11 @@ const Menu = ({
               <div className="w-[50px]">{`열_${i + 1}`}</div>
               <MenuDiv>{d["value"]}</MenuDiv>
               <button
-                disabled={!compValue["key"]["end"]["value"]}
+                disabled={
+                  i === 0
+                    ? !compValue["key"]["end"]["value"]
+                    : !compValue["value"][i - 1]["value"]
+                }
                 className={`px-4 ${
                   selectingTarget?.type === "comp" &&
                   selectingTarget?.field !== "key_start" &&
