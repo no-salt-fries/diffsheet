@@ -6,8 +6,8 @@ import type { workbookDataType } from "../types";
 
 interface DataGridProps {
   data: Record<string, any>;
-  setFixValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
-  setCompValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
+  setFixValue: React.Dispatch<React.SetStateAction<workbookDataType>>;
+  setCompValue: React.Dispatch<React.SetStateAction<workbookDataType>>;
   dataRef: React.RefObject<workbookDataType>;
   selectingTargetRef: React.RefObject<{
     type: "fix" | "comp";
@@ -192,18 +192,7 @@ const DataGrid: React.FC<DataGridProps> = ({
             if (e.cell.rowIndex == -1) return;
             const cellValue = selectedData[e.cell.rowIndex][e.cell.columnIndex];
 
-            setValue({
-              meta: { workbookId, sheetName },
-              key: {
-                start: { cell: cellIndex, value: cellValue },
-                end: { cell: null, value: null },
-              },
-              value: [
-                { id: 1, cell: null, value: null },
-                { id: 2, cell: null, value: null },
-                { id: 3, cell: null, value: null },
-              ],
-            });
+            setValue();
 
             dataRef.current = {
               ...dataRef.current,
@@ -227,8 +216,9 @@ const DataGrid: React.FC<DataGridProps> = ({
             const cellValue = selectedData[e.cell.rowIndex][e.cell.columnIndex];
 
             const keySheetId = dataRef.current[targetType]["meta"].workbookId;
-            const startCell =
-              dataRef.current[targetType]["key"]["start"]["cell"];
+            // const startCell =
+            //   dataRef.current[targetType]["key"]["start"]["cell"];
+            const startCell = "";
             const startCellColumn = startCell?.split(":")[1] ?? "";
 
             if (keySheetId && keySheetId !== workbookId) {

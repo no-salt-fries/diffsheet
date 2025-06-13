@@ -8,8 +8,8 @@ interface WorkBookProps {
   data: Record<string, any> | null;
   setData: React.Dispatch<React.SetStateAction<Record<string, any> | null>>;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  setFixValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
-  setCompValue: React.Dispatch<React.SetStateAction<Record<string, any>>>;
+  setFixValue: React.Dispatch<React.SetStateAction<workbookDataType>>;
+  setCompValue: React.Dispatch<React.SetStateAction<workbookDataType>>;
   dataRef: React.RefObject<workbookDataType>;
   selectingTargetRef: React.RefObject<{
     type: "fix" | "comp";
