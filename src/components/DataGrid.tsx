@@ -188,81 +188,80 @@ const DataGrid: React.FC<DataGridProps> = ({
 
         // 눌려진 버튼에 따라서 fixValue, compValue에 값을 설정하는 함수
         const handleValueUpdate = (selectedRef: selectRefType) => {
-          if (selectedRef.type !== null && selectedRef.keyField !== null) {
+          if (selectedRef.type !== null) {
             const selectedType = selectedRef.type;
-            const selectedField = selectedRef.keyField;
-
             const setValue =
               selectedType === "fix" ? setFixValue : setCompValue;
-
-            const keyStartSheetId =
+            const sheetIdOfKeyStart =
               dataRef.current[selectedType]["meta"].workbookId;
 
-            if (selectedField === "key_start") {
+            if ("keyField" in selectedRef) {
               if (e.cell.rowIndex == -1) return;
+              const { keyField } = selectedRef;
 
-              const workbookInitialstate = workbookInitial();
-              workbookInitialstate["meta"] = { workbookId, sheetName };
-              workbookInitialstate["key"]["start"] = {
-                rowIndex,
-                columnIndex,
-                headerTitle,
-                value: cellValue,
-              };
+              if (keyField === "key_start") {
+                const workbookInitialstate = workbookInitial();
+                workbookInitialstate["meta"] = { workbookId, sheetName };
+                workbookInitialstate["key"]["start"] = {
+                  rowIndex,
+                  columnIndex,
+                  headerTitle,
+                  value: cellValue,
+                };
 
-              setValue(workbookInitialstate);
-              dataRef.current = {
-                ...dataRef.current,
-                [selectedType]: workbookInitialstate,
-              };
+                setValue(workbookInitialstate);
+                dataRef.current = {
+                  ...dataRef.current,
+                  [selectedType]: workbookInitialstate,
+                };
 
-              setButtonDisable(true);
-            } else if (selectedField === "key_end") {
-              if (e.cell.rowIndex == -1) return;
+                setButtonDisable(true);
+              } else {
+                const keyStartCellColumn =
+                  dataRef.current[selectedType]["key"]["start"][
+                    "columnIndex"
+                  ] ?? "";
 
-              const keyStartCellColumn =
-                dataRef.current[selectedType]["key"]["start"]["columnIndex"] ??
-                "";
+                if (sheetIdOfKeyStart && sheetIdOfKeyStart !== workbookId) {
+                  window.alert("같은 workbook에서 데이터를 선택하세요");
+                  return;
+                }
 
-              if (keyStartSheetId && keyStartSheetId !== workbookId) {
-                window.alert("같은 workbook에서 데이터를 선택하세요");
-                return;
-              }
+                if (parseInt(keyStartCellColumn) !== parseInt(columnIndex)) {
+                  window.alert("같은 열에서 데이터를 선택하세요");
+                  return;
+                }
 
-              if (parseInt(keyStartCellColumn) !== parseInt(columnIndex)) {
-                window.alert("같은 열에서 데이터를 선택하세요");
-                return;
-              }
+                const selectCellObj = {
+                  rowIndex,
+                  columnIndex,
+                  headerTitle,
+                  value: cellValue,
+                };
 
-              const selectCellObj = {
-                rowIndex,
-                columnIndex,
-                headerTitle,
-                value: cellValue,
-              };
-
-              setValue((prev) => ({
-                ...prev,
-                key: {
-                  ...prev["key"],
-                  end: selectCellObj,
-                },
-              }));
-
-              dataRef.current = {
-                ...dataRef.current,
-                [selectedType]: {
-                  ...dataRef.current[selectedType],
+                setValue((prev) => ({
+                  ...prev,
                   key: {
-                    ...dataRef.current[selectedType]["key"],
+                    ...prev["key"],
                     end: selectCellObj,
                   },
-                },
-              };
-            } else {
-              //열을 선택했을 때
+                }));
 
-              if (keyStartSheetId && keyStartSheetId !== workbookId) {
+                dataRef.current = {
+                  ...dataRef.current,
+                  [selectedType]: {
+                    ...dataRef.current[selectedType],
+                    key: {
+                      ...dataRef.current[selectedType]["key"],
+                      end: selectCellObj,
+                    },
+                  },
+                };
+              }
+            } else {
+              const { valueField } = selectedRef;
+
+              if (sheetIdOfKeyStart && sheetIdOfKeyStart !== workbookId) {
                 window.alert("같은 workbook에서 데이터를 선택하세요");
                 return;
               }
@@ -270,7 +269,7 @@ const DataGrid: React.FC<DataGridProps> = ({
               setValue((prev) => {
                 const newValueObj = { ...prev.value };
 
-                newValueObj[selectedField] = {
+                newValueObj[valueField] = {
                   rowIndex,
                   columnIndex,
                   value: cellValue,
@@ -286,7 +285,7 @@ const DataGrid: React.FC<DataGridProps> = ({
 
               const refObj = { ...dataRef.current[selectedType]["value"] };
 
-              refObj[selectedField] = {
+              refObj[valueField] = {
                 rowIndex,
                 columnIndex,
                 value: cellValue,
@@ -303,13 +302,13 @@ const DataGrid: React.FC<DataGridProps> = ({
               };
             }
           }
+
+          const target = selectedTargetRef.current;
+
+          if (target) {
+            handleValueUpdate(target);
+          }
         };
-
-        const target = selectingTargetRef.current;
-
-        if (target) {
-          handleValueUpdate({ type: target.type, keyField: target.keyField });
-        }
       });
 
       grid.data = currentSheetData;
