@@ -2,17 +2,19 @@ import { utils } from "xlsx";
 import React, { useRef, useEffect, useState, useMemo } from "react";
 import canvasDatagrid from "canvas-datagrid";
 
-import type { workbookDataType } from "../types";
+import type { selectRefType } from "./types/selectedRef";
+import {
+  workbookInitial,
+  type workbookDataType,
+  type workbookRefDataType,
+} from "./types/workbook";
 
 interface DataGridProps {
   data: Record<string, any>;
   setFixValue: React.Dispatch<React.SetStateAction<workbookDataType>>;
   setCompValue: React.Dispatch<React.SetStateAction<workbookDataType>>;
-  dataRef: React.RefObject<workbookDataType>;
-  selectingTargetRef: React.RefObject<{
-    type: "fix" | "comp";
-    field: "key_start" | "key_end" | number;
-  } | null>;
+  dataRef: React.RefObject<workbookRefDataType>;
+  selectedTargetRef: React.RefObject<selectRefType>;
   sheetChangeButtonDisable: boolean;
   setButtonDisable: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -20,7 +22,7 @@ interface DataGridProps {
 const DataGrid: React.FC<DataGridProps> = ({
   data,
   dataRef,
-  selectingTargetRef,
+  selectedTargetRef,
   sheetChangeButtonDisable,
   setButtonDisable,
   setFixValue,
@@ -32,7 +34,7 @@ const DataGrid: React.FC<DataGridProps> = ({
   const [sheetName, setSheetName] = useState<string>(sheetNames[0]);
 
   // sheetName, sheets변화를 제외한 부모 Component의 state변화 무시
-  const selectedData = useMemo(() => {
+  const currentSheetData = useMemo(() => {
     return utils.sheet_to_json(sheets[sheetName], {
       header: 1,
       raw: false,
@@ -44,7 +46,7 @@ const DataGrid: React.FC<DataGridProps> = ({
   const gridRef = useRef<any>(null);
 
   useEffect(() => {
-    // selectedData가 바뀔 때 마다 아래의 코드가 실행
+    // currentSheetData가 바뀔 때 마다 아래의 코드가 실행
     if (containerRef.current) {
       if (gridRef.current) {
         /*
@@ -77,7 +79,7 @@ const DataGrid: React.FC<DataGridProps> = ({
       // selection(ActiveCell)이 하나만 존재하도록 설정
       grid.setAttribute("selectionFollowsActiveCell", true);
 
-      grid.style.height = "100%";
+      grid.style.height = "95%";
       grid.style.width = "100%";
 
       containerRef.current.style.width = "100%";
@@ -93,79 +95,79 @@ const DataGrid: React.FC<DataGridProps> = ({
         "rgb(255 246 0 / 20%)",
       ];
 
-      grid.addEventListener("rendercell", (e: any) => {
-        // type: fix | comp
-        // field: key
-        // 값이 존재하는 경우에는 해당 cell에 색을 설정
+      //   grid.addEventListener("rendercell", (e: any) => {
+      //     // type: fix | comp
+      //     // field: key
+      //     // 값이 존재하는 경우에는 해당 cell에 색을 설정
 
-        const workbookId = data["Custprops"]["id"];
+      //     const workbookId = data["Custprops"]["id"];
 
-        const target = Object.entries(dataRef.current).find(
-          ([, entry]) => entry["meta"]["workbookId"] === workbookId
-        );
+      //     const target = Object.entries(dataRef.current).find(
+      //       ([, entry]) => entry["meta"]["workbookId"] === workbookId
+      //     );
 
-        if (target) {
-          let startIndex = null;
-          let endIndex = null;
+      //     if (target) {
+      //       let startIndex = null;
+      //       let endIndex = null;
 
-          const startCellInfo = target[1]["key"]["start"]["cell"];
-          const endCellInfo = target[1]["key"]["end"]["cell"];
+      //       const startCellInfo = target[1]["key"]["start"]["cell"];
+      //       const endCellInfo = target[1]["key"]["end"]["cell"];
 
-          const valueCellInfo = target[1]["value"];
+      //       const valueCellInfo = target[1]["value"];
 
-          if (valueCellInfo) {
-            valueCellInfo.map((d: any, i: number) => {
-              const columnIndex = d["cell"]
-                ? parseInt(d["cell"]?.split(":")[1])
-                : -1;
+      //       if (valueCellInfo) {
+      //         valueCellInfo.map((d: any, i: number) => {
+      //           const columnIndex = d["cell"]
+      //             ? parseInt(d["cell"]?.split(":")[1])
+      //             : -1;
 
-              if (columnIndex === -1) return;
+      //           if (columnIndex === -1) return;
 
-              if (e.cell.columnIndex === columnIndex) {
-                if (e.cell.rowIndex > -1) {
-                  e.ctx.fillStyle = columnColorPreset[i];
-                }
-              }
-            });
-          }
+      //           if (e.cell.columnIndex === columnIndex) {
+      //             if (e.cell.rowIndex > -1) {
+      //               e.ctx.fillStyle = columnColorPreset[i];
+      //             }
+      //           }
+      //         });
+      //       }
 
-          if (startCellInfo) {
-            const startRowIndex = parseInt(startCellInfo.split(":")[0]);
+      //       if (startCellInfo) {
+      //         const startRowIndex = parseInt(startCellInfo.split(":")[0]);
 
-            if (endCellInfo) {
-              const endRowIndex = parseInt(endCellInfo.split(":")[0]);
+      //         if (endCellInfo) {
+      //           const endRowIndex = parseInt(endCellInfo.split(":")[0]);
 
-              if (startRowIndex - endRowIndex === 0) {
-                startIndex = startRowIndex;
-                endIndex = startRowIndex;
-              } else if (startRowIndex - endRowIndex !== 0) {
-                if (startRowIndex > endRowIndex) {
-                  startIndex = endRowIndex;
-                  endIndex = startRowIndex;
-                } else {
-                  startIndex = startRowIndex;
-                  endIndex = endRowIndex;
-                }
-              }
+      //           if (startRowIndex - endRowIndex === 0) {
+      //             startIndex = startRowIndex;
+      //             endIndex = startRowIndex;
+      //           } else if (startRowIndex - endRowIndex !== 0) {
+      //             if (startRowIndex > endRowIndex) {
+      //               startIndex = endRowIndex;
+      //               endIndex = startRowIndex;
+      //             } else {
+      //               startIndex = startRowIndex;
+      //               endIndex = endRowIndex;
+      //             }
+      //           }
 
-              if (
-                startIndex &&
-                e.cell.rowIndex >= startIndex &&
-                endIndex &&
-                e.cell.rowIndex <= endIndex
-              ) {
-                e.ctx.fillStyle = "#AEEDCF";
-              }
-            } else {
-              startIndex = startRowIndex;
+      //           if (
+      //             startIndex &&
+      //             e.cell.rowIndex >= startIndex &&
+      //             endIndex &&
+      //             e.cell.rowIndex <= endIndex
+      //           ) {
+      //             e.ctx.fillStyle = "#AEEDCF";
+      //           }
+      //         } else {
+      //           startIndex = startRowIndex;
 
-              if (e.cell.rowIndex === startIndex) {
-                e.ctx.fillStyle = "#AEEDCF";
-              }
-            }
-          }
-        }
-      });
+      //           if (e.cell.rowIndex === startIndex) {
+      //             e.ctx.fillStyle = "#AEEDCF";
+      //           }
+      //         }
+      //       }
+      //     }
+      //   });
 
       grid.addEventListener("click", (e: any) => {
         // 클릭하는 경우 > key_start, key_end, value
@@ -177,131 +179,143 @@ const DataGrid: React.FC<DataGridProps> = ({
         // if (e.cell.rowIndex == -1) return;
 
         const workbookId = data["Custprops"]["id"];
+        // sheetName은 위쪽에 선언할당
+
         const rowIndex = e.cell.rowIndex;
         const columnIndex = e.cell.columnIndex;
-        const cellIndex = `${rowIndex}:${columnIndex}`;
-        // const cellValue = selectedData[e.cell.rowIndex][e.cell.columnIndex];
+        const headerTitle = e.cell["header"]["title"];
+        const cellValue = currentSheetData[e.cell.rowIndex][e.cell.columnIndex];
 
-        const handleValueUpdate = (
-          targetType: "fix" | "comp",
-          field: "key_start" | "key_end" | number | undefined
-        ) => {
-          const setValue = targetType === "fix" ? setFixValue : setCompValue;
+        // 눌려진 버튼에 따라서 fixValue, compValue에 값을 설정하는 함수
+        const handleValueUpdate = (selectedRef: selectRefType) => {
+          if (selectedRef.type !== null && selectedRef.keyField !== null) {
+            const selectedType = selectedRef.type;
+            const selectedField = selectedRef.keyField;
 
-          if (field === "key_start") {
-            if (e.cell.rowIndex == -1) return;
-            const cellValue = selectedData[e.cell.rowIndex][e.cell.columnIndex];
+            const setValue =
+              selectedType === "fix" ? setFixValue : setCompValue;
 
-            setValue();
+            const keyStartSheetId =
+              dataRef.current[selectedType]["meta"].workbookId;
 
-            dataRef.current = {
-              ...dataRef.current,
-              [targetType]: {
-                meta: { workbookId, sheetName },
-                key: {
-                  start: { cell: cellIndex, value: cellValue },
-                  end: { cell: null, value: null },
-                },
-                value: [
-                  { id: 1, cell: null, value: null },
-                  { id: 2, cell: null, value: null },
-                  { id: 3, cell: null, value: null },
-                ],
-              },
-            };
+            if (selectedField === "key_start") {
+              if (e.cell.rowIndex == -1) return;
 
-            setButtonDisable(true);
-          } else if (field === "key_end") {
-            if (e.cell.rowIndex == -1) return;
-            const cellValue = selectedData[e.cell.rowIndex][e.cell.columnIndex];
-
-            const keySheetId = dataRef.current[targetType]["meta"].workbookId;
-            // const startCell =
-            //   dataRef.current[targetType]["key"]["start"]["cell"];
-            const startCell = "";
-            const startCellColumn = startCell?.split(":")[1] ?? "";
-
-            if (keySheetId && keySheetId !== workbookId) {
-              window.alert("같은 workbook에서 데이터를 선택하세요");
-              return;
-            }
-
-            console.log(startCellColumn, columnIndex);
-
-            if (parseInt(startCellColumn) !== parseInt(columnIndex)) {
-              window.alert("같은 열에서 데이터를 선택하세요");
-              return;
-            }
-
-            setValue((prev) => ({
-              ...prev,
-              key: {
-                ...prev["key"],
-                end: { cell: cellIndex, value: cellValue },
-              },
-            }));
-
-            dataRef.current = {
-              ...dataRef.current,
-              [targetType]: {
-                ...dataRef.current[targetType],
-                key: {
-                  ...dataRef.current[targetType]["key"],
-                  end: { cell: cellIndex, value: cellValue },
-                },
-              },
-            };
-          } else if (field !== undefined) {
-            //열을 선택했을 때
-            const keySheetId = dataRef.current[targetType]["meta"].workbookId;
-            const cellValue = e.cell["header"]["title"];
-
-            if (keySheetId && keySheetId !== workbookId) {
-              window.alert("같은 workbook에서 데이터를 선택하세요");
-              return;
-            }
-
-            setValue((prev) => {
-              const newArr = [...prev.value];
-
-              newArr[field] = {
-                ...newArr[field],
-                cell: cellIndex,
+              const workbookInitialstate = workbookInitial();
+              workbookInitialstate["meta"] = { workbookId, sheetName };
+              workbookInitialstate["key"]["start"] = {
+                rowIndex,
+                columnIndex,
+                headerTitle,
                 value: cellValue,
               };
 
-              return {
-                ...prev,
-                value: newArr,
+              setValue(workbookInitialstate);
+              dataRef.current = {
+                ...dataRef.current,
+                [selectedType]: workbookInitialstate,
               };
-            });
 
-            const refArr = [...dataRef.current[targetType]["value"]];
+              setButtonDisable(true);
+            } else if (selectedField === "key_end") {
+              if (e.cell.rowIndex == -1) return;
 
-            refArr[field] = {
-              ...refArr[field],
-              cell: cellIndex,
-              value: cellValue,
-            };
+              const keyStartCellColumn =
+                dataRef.current[selectedType]["key"]["start"]["columnIndex"] ??
+                "";
 
-            dataRef.current = {
-              ...dataRef.current,
-              [targetType]: { ...dataRef.current[targetType], value: refArr },
-            };
+              if (keyStartSheetId && keyStartSheetId !== workbookId) {
+                window.alert("같은 workbook에서 데이터를 선택하세요");
+                return;
+              }
+
+              if (parseInt(keyStartCellColumn) !== parseInt(columnIndex)) {
+                window.alert("같은 열에서 데이터를 선택하세요");
+                return;
+              }
+
+              const selectCellObj = {
+                rowIndex,
+                columnIndex,
+                headerTitle,
+                value: cellValue,
+              };
+
+              setValue((prev) => ({
+                ...prev,
+                key: {
+                  ...prev["key"],
+                  end: selectCellObj,
+                },
+              }));
+
+              dataRef.current = {
+                ...dataRef.current,
+                [selectedType]: {
+                  ...dataRef.current[selectedType],
+                  key: {
+                    ...dataRef.current[selectedType]["key"],
+                    end: selectCellObj,
+                  },
+                },
+              };
+            } else {
+              //열을 선택했을 때
+
+              if (keyStartSheetId && keyStartSheetId !== workbookId) {
+                window.alert("같은 workbook에서 데이터를 선택하세요");
+                return;
+              }
+
+              setValue((prev) => {
+                const newValueObj = { ...prev.value };
+
+                newValueObj[selectedField] = {
+                  rowIndex,
+                  columnIndex,
+                  value: cellValue,
+                  headerTitle,
+                  type: null,
+                };
+
+                return {
+                  ...prev,
+                  value: newValueObj,
+                };
+              });
+
+              const refObj = { ...dataRef.current[selectedType]["value"] };
+
+              refObj[selectedField] = {
+                rowIndex,
+                columnIndex,
+                value: cellValue,
+                headerTitle,
+                type: null,
+              };
+
+              dataRef.current = {
+                ...dataRef.current,
+                [selectedType]: {
+                  ...dataRef.current[selectedType],
+                  value: refObj,
+                },
+              };
+            }
           }
         };
 
         const target = selectingTargetRef.current;
 
         if (target) {
-          handleValueUpdate(target.type, target.field);
+          handleValueUpdate({ type: target.type, keyField: target.keyField });
         }
       });
 
-      grid.data = selectedData;
+      grid.data = currentSheetData;
       gridRef.current = grid;
     }
-  }, [selectedData]);
+  }, [currentSheetData]);
 
   return (
     <div>

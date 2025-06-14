@@ -2,7 +2,8 @@ import { v4 as uuidv4 } from "uuid";
 
 import React, { useState } from "react";
 import DataGrid from "./DataGrid";
-import type { workbookDataType } from "../types";
+import type { workbookDataType, workbookRefDataType } from "./types/workbook";
+import type { selectRefType } from "./types/selectedRef";
 
 interface WorkBookProps {
   data: Record<string, any> | null;
@@ -10,11 +11,8 @@ interface WorkBookProps {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setFixValue: React.Dispatch<React.SetStateAction<workbookDataType>>;
   setCompValue: React.Dispatch<React.SetStateAction<workbookDataType>>;
-  dataRef: React.RefObject<workbookDataType>;
-  selectingTargetRef: React.RefObject<{
-    type: "fix" | "comp";
-    field: "key_start" | "key_end" | number;
-  } | null>;
+  dataRef: React.RefObject<workbookRefDataType>;
+  selectedTargetRef: React.RefObject<selectRefType>;
   sheetChangeButtonDisable: boolean;
   setButtonDisable: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -24,7 +22,7 @@ const WorkBook: React.FC<WorkBookProps> = ({
   setData,
   setLoading,
   dataRef,
-  selectingTargetRef,
+  selectedTargetRef,
   sheetChangeButtonDisable,
   setButtonDisable,
   setFixValue,
@@ -86,7 +84,7 @@ const WorkBook: React.FC<WorkBookProps> = ({
         <DataGrid
           data={data}
           dataRef={dataRef}
-          selectingTargetRef={selectingTargetRef}
+          selectedTargetRef={selectedTargetRef}
           sheetChangeButtonDisable={sheetChangeButtonDisable}
           setButtonDisable={setButtonDisable}
           setFixValue={setFixValue}

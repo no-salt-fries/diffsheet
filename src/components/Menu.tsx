@@ -1,23 +1,19 @@
+import type { selectRefType } from "./types/selectedRef";
+import type { workbookDataType } from "./types/workbook";
 import MenuDiv from "./UI/MenuDiv";
 
 interface MenuDivProps {
-  fixValue: Record<string, any>;
-  compValue: Record<string, any>;
-  selectingTarget: {
-    type: "fix" | "comp";
-    field: "key_start" | "key_end" | number;
-  } | null;
-  handleTargetClick: (
-    type: "fix" | "comp",
-    field: "key_start" | "key_end" | number
-  ) => void;
+  fixValue: workbookDataType;
+  compValue: workbookDataType;
+  selectedTarget: selectRefType;
+  handleTargetClick: (selectedRef: selectRefType) => void;
   runCompare: () => void;
 }
 
 const Menu = ({
   fixValue,
   compValue,
-  selectingTarget,
+  selectedTarget,
   handleTargetClick,
   runCompare,
 }: MenuDivProps) => {
@@ -35,12 +31,14 @@ const Menu = ({
                   <MenuDiv>{fixValue["key"]["start"]["value"]}</MenuDiv>
                   <button
                     className={`px-4 ${
-                      selectingTarget?.type === "fix" &&
-                      selectingTarget?.field === "key_start"
+                      selectedTarget?.type === "fix" &&
+                      selectedTarget?.keyField === "key_start"
                         ? "bg-stone-600 text-white"
                         : ""
                     }`}
-                    onClick={() => handleTargetClick("fix", "key_start")}
+                    onClick={() =>
+                      handleTargetClick({ type: "fix", keyField: "key_start" })
+                    }
                   >
                     선택
                   </button>
@@ -51,12 +49,14 @@ const Menu = ({
                   <button
                     disabled={!fixValue["key"]["start"]["value"]}
                     className={`px-4 ${
-                      selectingTarget?.type === "fix" &&
-                      selectingTarget?.field === "key_end"
+                      selectedTarget?.type === "fix" &&
+                      selectedTarget?.keyField === "key_end"
                         ? "bg-stone-600 text-white"
                         : ""
                     }`}
-                    onClick={() => handleTargetClick("fix", "key_end")}
+                    onClick={() =>
+                      handleTargetClick({ type: "fix", keyField: "key_end" })
+                    }
                   >
                     선택
                   </button>
@@ -65,7 +65,7 @@ const Menu = ({
             </div>
           </div>
 
-          {fixValue["value"].map((d: any, i: number) => (
+          {/* {fixValue["value"].map((d: any, i: 0 | 1) => (
             <div className="flex mt-1 border-1 rounded-lg p-1" key={i}>
               <div className="w-[50px]"></div>
               <div className="w-[50px]">{`열_${i + 1}`}</div>
@@ -84,12 +84,14 @@ const Menu = ({
                     ? "bg-stone-600 text-white"
                     : ""
                 }`}
-                onClick={() => handleTargetClick("fix", i)}
+                onClick={() =>
+                  handleTargetClick({ type: "fix", field: (i + 1) as 1 | 2 })
+                }
               >
                 선택
               </button>
             </div>
-          ))}
+          ))} */}
         </div>
         <div className="flex flex-col justify-end">
           <div className="flex">
@@ -101,12 +103,14 @@ const Menu = ({
                   <MenuDiv>{compValue["key"]["start"]["value"]}</MenuDiv>
                   <button
                     className={`px-4 ${
-                      selectingTarget?.type === "comp" &&
-                      selectingTarget?.field === "key_start"
+                      selectedTarget?.type === "comp" &&
+                      selectedTarget?.keyField === "key_start"
                         ? "bg-stone-600 text-white"
                         : ""
                     }`}
-                    onClick={() => handleTargetClick("comp", "key_start")}
+                    onClick={() =>
+                      handleTargetClick({ type: "comp", keyField: "key_start" })
+                    }
                   >
                     선택
                   </button>
@@ -117,12 +121,14 @@ const Menu = ({
                   <button
                     disabled={!compValue["key"]["start"]["value"]}
                     className={`px-4 ${
-                      selectingTarget?.type === "comp" &&
-                      selectingTarget?.field === "key_end"
+                      selectedTarget?.type === "comp" &&
+                      selectedTarget?.keyField === "key_end"
                         ? "bg-stone-600 text-white"
                         : ""
                     }`}
-                    onClick={() => handleTargetClick("comp", "key_end")}
+                    onClick={() =>
+                      handleTargetClick({ type: "comp", keyField: "key_end" })
+                    }
                   >
                     선택
                   </button>
@@ -130,7 +136,7 @@ const Menu = ({
               </div>
             </div>
           </div>
-          {compValue["value"].map((d: any, i: number) => (
+          {/* {compValue["value"].map((d: any, i: 0 | 1) => (
             <div className="flex mt-1 border-1 rounded-lg p-1" key={i}>
               <div className="w-[50px]"></div>
               <div className="w-[50px]">{`열_${i + 1}`}</div>
@@ -143,18 +149,20 @@ const Menu = ({
                 }
                 className={`px-4 ${
                   selectingTarget?.type === "comp" &&
-                  selectingTarget?.field !== "key_start" &&
-                  selectingTarget?.field !== "key_end" &&
-                  selectingTarget?.field === i
+                  selectingTarget?.keyField !== "key_start" &&
+                  selectingTarget?.keyField !== "key_end" &&
+                  selectingTarget?.keyField === i
                     ? "bg-stone-600 text-white"
                     : ""
                 }`}
-                onClick={() => handleTargetClick("comp", i)}
+                onClick={() =>
+                  handleTargetClick({ type: "comp", keyField: (i + 1) })
+                }
               >
                 선택
               </button>
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
       <div className="flex flex-col justify-end mr-20">

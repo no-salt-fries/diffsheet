@@ -4,7 +4,16 @@ import Menu from "./components/Menu";
 
 import "./App.css";
 
-import type { workbookDataType } from "./types";
+import type { selectRefType } from "./components/types/selectedRef";
+
+import type {
+  workbookDataType,
+  workbookRefDataType,
+} from "./components/types/workbook";
+
+import { selectedRefInitial } from "./components/types/selectedRef";
+
+import { workbookInitial } from "./components/types/workbook";
 
 const App = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -23,92 +32,45 @@ const App = () => {
 
   // selectingTargetRef에 따라서 canvas-datagrid cell을 클릭했을 때 fix, comp 둘 중 하나의 state에 값이 저장됨
   // ref를 사용하는 이유는 canvas-datagrid 리랜더링 방지를 위해서
-  const selectingTargetRef = useRef<null | {
-    type: "fix" | "comp";
-    field: "key_start" | "key_end" | number;
-  }>(null);
+  const initialselectedRef = selectedRefInitial();
+  const selectedTargetRef = useRef<selectRefType>(initialselectedRef);
 
   // selectingTargetRef에 따라서 canvas-datagrid cell을 클릭했을 때 fix, comp 둘 중 하나의 state에 값이 저장됨
   // 아래 코드는 menu에서 style을 위해 사용하는 state
-  const [selectingTarget, setSelectingTarget] = useState<null | {
-    type: "fix" | "comp";
-    field: "key_start" | "key_end" | number;
-  }>(null);
+  const [selectedTarget, setSelectedTarget] =
+    useState<selectRefType>(selectedRefInitial);
 
-  // menu에서 클릭된 버튼에 따라 selectingTargetRef, selectingTarget에 값이 설정된다
-  const handleTargetClick = (
-    type: "fix" | "comp",
-    field: "key_start" | "key_end" | number
-  ) => {
-    if (selectingTarget?.type === type && selectingTarget?.field === field) {
-      setSelectingTarget(null); // 다시 클릭하면 해제
-      selectingTargetRef.current = null;
+  // selectingTargetRef, selectingTarget에 값을 설정하는 함수
+  const handleTargetClick = (_selectedTargetRef: selectRefType) => {
+    const isSame =
+      selectedTarget?.type === _selectedTargetRef.type &&
+      (("keyField" in selectedTarget &&
+        "keyField" in _selectedTargetRef &&
+        selectedTarget.keyField === _selectedTargetRef.keyField) ||
+        ("valueField" in selectedTarget &&
+          "valueField" in _selectedTargetRef &&
+          selectedTarget.valueField === _selectedTargetRef.valueField));
+
+    if (isSame) {
+      setSelectedTarget(initialselectedRef); // 다시 클릭하면 해제
+      selectedTargetRef.current = initialselectedRef;
     } else {
-      setSelectingTarget({ type, field });
-      selectingTargetRef.current = { type, field };
+      setSelectedTarget(_selectedTargetRef);
+      selectedTargetRef.current = _selectedTargetRef;
     }
   };
 
-  // ref, state initial 값 생성함수
-  const createInitial = () => ({
-    meta: { workbookId: null, sheetName: null },
-    key: {
-      type: {
-        type: null,
-        format: null,
-      },
-      start: {
-        rowIndex: null,
-        columnIndex: null,
-        value: null,
-        headerValue: null,
-      },
-      end: {
-        rowIndex: null,
-        columnIndex: null,
-        value: null,
-        headerValue: null,
-      },
-    },
-    value: {
-      1: {
-        rowIndex: null,
-        columnIndex: null,
-        value: null,
-        headerValue: null,
-        type: null,
-      },
-      2: {
-        rowIndex: null,
-        columnIndex: null,
-        value: null,
-        headerValue: null,
-        type: null,
-      },
-    },
-  });
-
   // fixValue, compValue는 Menu에서만 사용
   // canvas-dataGrid 리랜더링 방지로 ref사용
-  const dataRef = useRef<workbookDataType>({
-    fix: createInitial(),
-    comp: createInitial(),
+  const dataRef = useRef<workbookRefDataType>({
+    fix: workbookInitial(),
+    comp: workbookInitial(),
   });
 
   // fixValue, compValue는 Menu에서만 사용, 나머지 component에서 리랜더링 방지처리하기
-  const [fixValue, setFixValue] = useState<workbookDataType>(() => {
-    return {
-      fix: createInitial(),
-      comp: createInitial(),
-    };
-  });
+  const [fixValue, setFixValue] = useState<workbookDataType>(workbookInitial);
 
-  const [compValue, setCompValue] = useState<workbookDataType>(() => {
-    return {
-      fix: createInitial(),
-      comp: createInitial(),
-    };
-  });
+  const [compValue, setCompValue] = useState<workbookDataType>(workbookInitial);
 
   const runCompare = () => {
     // 적어도 id가 1인 value에는 값이 설정되어있어야 함
@@ -246,7 +208,7 @@ const App = () => {
       <Menu
         fixValue={fixValue}
         compValue={compValue}
-        selectingTarget={selectingTarget}
+        selectedTarget={selectedTarget}
         handleTargetClick={handleTargetClick}
         runCompare={runCompare}
       />
@@ -257,7 +219,7 @@ const App = () => {
             setData={setLeftWbData}
             setLoading={setLoading}
             dataRef={dataRef}
-            selectingTargetRef={selectingTargetRef}
+            selectedTargetRef={selectedTargetRef}
             sheetChangeButtonDisable={sheetChangeButtonDisable}
             setButtonDisable={setButtonDisable}
             setFixValue={setFixValue}
@@ -270,7 +232,7 @@ const App = () => {
             setData={setRightWbData}
             setLoading={setLoading}
             dataRef={dataRef}
-            selectingTargetRef={selectingTargetRef}
+            selectedTargetRef={selectedTargetRef}
             sheetChangeButtonDisable={sheetChangeButtonDisable}
             setButtonDisable={setButtonDisable}
             setFixValue={setFixValue}
