@@ -1,3 +1,4 @@
+import MenuBtn from "./UI/MenuBtn";
 import MenuDiv from "./UI/MenuDiv";
 
 // 메뉴 컴포넌트 잘게 쪼개기
@@ -21,19 +22,11 @@ const Menu = ({
                 <div className="flex">
                   <div className="w-[50px]">시작</div>
                   <MenuDiv>{fixValue["key"]["start"]["value"]}</MenuDiv>
-                  <button
-                    className={`px-4 ${
-                      selectedTarget.type === "fix" &&
-                      selectedTarget.keyField === "key_start"
-                        ? "bg-stone-600 text-white"
-                        : ""
-                    }`}
-                    onClick={() =>
-                      handleTargetClick({ type: "fix", keyField: "key_start" })
-                    }
-                  >
-                    선택
-                  </button>
+                  <MenuBtn
+                    selectedTarget={selectedTarget}
+                    handleTargetClick={handleTargetClick}
+                    selected={{ type: "fix", keyField: "key_start" }}
+                  />
                 </div>
                 <div className="flex mt-1">
                   <div className="w-[50px]">끝</div>
@@ -56,30 +49,26 @@ const Menu = ({
               </div>
             </div>
           </div>
-          {Object.entries(fixValue["value"]).map(([key, cell]) => {
-            const i = parseInt(key);
-
+          {Object.entries(fixValue["value"]).map(([_valueField, cell], i) => {
             return (
-              <div className="flex mt-1 border-1 rounded-lg p-1" key={key}>
+              <div className="flex mt-1 border-1 rounded-lg p-1" key={i}>
                 <div className="w-[50px]"></div>
-                <div className="w-[50px]">{`열_${key}`}</div>
-                {/* <MenuDiv>{cell["value"]}</MenuDiv> */}
+                <div className="w-[50px]">{`열_${_valueField}`}</div>
+                <MenuDiv>{cell["value"]}</MenuDiv>
                 <button
                   disabled={
                     i === 0
                       ? !fixValue["key"]["end"]["value"]
-                      : !fixValue["value"][i - 1]["value"]
+                      : !fixValue["value"][i]["value"]
                   }
                   className={`px-4 ${
-                    selectedTarget.type === "fix" &&
-                    selectedTarget.keyField !== "key_start" &&
-                    selectedTarget.keyField !== "key_end" &&
-                    selectedTarget.valueField === i
+                    selectedTarget.valueField &&
+                    selectedTarget.valueField === _valueField
                       ? "bg-stone-600 text-white"
                       : ""
                   }`}
                   onClick={() =>
-                    handleTargetClick({ type: "fix", valueField: "1" })
+                    handleTargetClick({ type: "fix", valueField: _valueField })
                   }
                 >
                   선택
@@ -87,7 +76,6 @@ const Menu = ({
               </div>
             );
           })}
-
           {/* {fixValue["value"].map((d: any, i: 0 | 1) => (
             <div className="flex mt-1 border-1 rounded-lg p-1" key={i}>
               <div className="w-[50px]"></div>

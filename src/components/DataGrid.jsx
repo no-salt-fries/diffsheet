@@ -1,6 +1,7 @@
 import { utils } from "xlsx";
 import React, { useRef, useEffect, useState, useMemo } from "react";
 import canvasDatagrid from "canvas-datagrid";
+import { workbookInitial } from "./types/workbook";
 
 const DataGrid = ({
   data,
@@ -14,7 +15,7 @@ const DataGrid = ({
   const sheetNames = data["SheetNames"];
   const sheets = data["Sheets"];
 
-  const [sheetName, setSheetName] = useState < string > sheetNames[0];
+  const [sheetName, setSheetName] = useState(sheetNames[0]);
 
   // sheetName, sheets변화를 제외한 부모 Component의 state변화 무시
   const currentSheetData = useMemo(() => {
@@ -25,8 +26,8 @@ const DataGrid = ({
     });
   }, [sheetName, sheets]);
 
-  const containerRef = useRef < HTMLDivElement > null;
-  const gridRef = useRef < any > null;
+  const containerRef = useRef(null);
+  const gridRef = useRef(null);
 
   useEffect(() => {
     // currentSheetData가 바뀔 때 마다 아래의 코드가 실행

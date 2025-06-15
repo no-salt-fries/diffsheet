@@ -15,18 +15,18 @@ const App = () => {
 
   const [sheetChangeButtonDisable, setButtonDisable] = useState(false);
 
-  // 으 헷갈려
-
-  // selectingTargetRef에 따라서 canvas-datagrid cell을 클릭했을 때 fix, comp 둘 중 하나의 state에 값이 저장됨
-  // ref를 사용하는 이유는 canvas-datagrid 리랜더링 방지를 위해서
+  // 버튼 클릭 > type: fix | comp, keyField: key_start | key_end, valueField: 1 | 2
+  // 해당 값들이 selectedTarget, selectedTargetRef 에 설정 됨
+  // ref는 canvas-dataGrid에서 리랜더링을 방지하기 위해서 사용
   const initialselectedRef = selectedRefInitial();
   const selectedTargetRef = useRef(initialselectedRef);
 
-  // selectingTargetRef에 따라서 canvas-datagrid cell을 클릭했을 때 fix, comp 둘 중 하나의 state에 값이 저장됨
-  // 아래 코드는 menu에서 style을 위해 사용하는 state
   const [selectedTarget, setSelectedTarget] = useState(selectedRefInitial);
 
-  // selectingTargetRef, selectingTarget에 값을 설정하는 함수
+  // selectingTargetRef, selectedTarget 값을 설정하는 함수
+  // handleTargetClick({ type: "fix", keyField: "key_start" })
+  // handleTargetClick({ type: "fix", valueField: "1" })
+  // handleTargetClick({ type: null })
   const handleTargetClick = (_selectedTargetRef) => {
     const isSame =
       selectedTarget.type === _selectedTargetRef.type &&
@@ -38,7 +38,7 @@ const App = () => {
           selectedTarget.valueField === _selectedTargetRef.valueField));
 
     if (isSame) {
-      setSelectedTarget(initialselectedRef); // 다시 클릭하면 해제
+      setSelectedTarget(initialselectedRef);
       selectedTargetRef.current = initialselectedRef;
     } else {
       setSelectedTarget(_selectedTargetRef);
@@ -55,7 +55,6 @@ const App = () => {
 
   // fixValue, compValue는 Menu에서만 사용, 나머지 component에서 리랜더링 방지처리하기
   const [fixValue, setFixValue] = useState(workbookInitial);
-
   const [compValue, setCompValue] = useState(workbookInitial);
 
   const runCompare = () => {
@@ -196,7 +195,7 @@ const App = () => {
         compValue={compValue}
         selectedTarget={selectedTarget}
         handleTargetClick={handleTargetClick}
-        runCompare={runCompare}
+        runCompare={() => {}}
       />
       <div className="flex flex-1 w-full">
         <div className="w-1/2">
