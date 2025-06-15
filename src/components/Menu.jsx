@@ -54,7 +54,7 @@ const Menu = ({
               <div className="flex mt-1 border-1 rounded-lg p-1" key={i}>
                 <div className="w-[50px]"></div>
                 <div className="w-[50px]">{`열_${_valueField}`}</div>
-                <MenuDiv>{cell["value"]}</MenuDiv>
+                <MenuDiv>{cell["headerTitle"]}</MenuDiv>
                 <button
                   disabled={
                     i === 0
@@ -62,6 +62,7 @@ const Menu = ({
                       : !fixValue["value"][i]["value"]
                   }
                   className={`px-4 ${
+                    selectedTarget.type === "fix" &&
                     selectedTarget.valueField &&
                     selectedTarget.valueField === _valueField
                       ? "bg-stone-600 text-white"
@@ -76,33 +77,6 @@ const Menu = ({
               </div>
             );
           })}
-          {/* {fixValue["value"].map((d: any, i: 0 | 1) => (
-            <div className="flex mt-1 border-1 rounded-lg p-1" key={i}>
-              <div className="w-[50px]"></div>
-              <div className="w-[50px]">{`열_${i + 1}`}</div>
-              <MenuDiv>{d["value"]}</MenuDiv>
-              <button
-                disabled={
-                  i === 0
-                    ? !fixValue["key"]["end"]["value"]
-                    : !fixValue["value"][i - 1]["value"]
-                }
-                className={`px-4 ${
-                  selectingTarget?.type === "fix" &&
-                  selectingTarget?.field !== "key_start" &&
-                  selectingTarget?.field !== "key_end" &&
-                  selectingTarget?.field === i
-                    ? "bg-stone-600 text-white"
-                    : ""
-                }`}
-                onClick={() =>
-                  handleTargetClick({ type: "fix", field: (i + 1) as 1 | 2 })
-                }
-              >
-                선택
-              </button>
-            </div>
-          ))} */}
         </div>
         <div className="flex flex-col justify-end">
           <div className="flex">
@@ -147,33 +121,34 @@ const Menu = ({
               </div>
             </div>
           </div>
-          {/* {compValue["value"].map((d: any, i: 0 | 1) => (
-            <div className="flex mt-1 border-1 rounded-lg p-1" key={i}>
-              <div className="w-[50px]"></div>
-              <div className="w-[50px]">{`열_${i + 1}`}</div>
-              <MenuDiv>{d["value"]}</MenuDiv>
-              <button
-                disabled={
-                  i === 0
-                    ? !compValue["key"]["end"]["value"]
-                    : !compValue["value"][i - 1]["value"]
-                }
-                className={`px-4 ${
-                  selectingTarget?.type === "comp" &&
-                  selectingTarget?.keyField !== "key_start" &&
-                  selectingTarget?.keyField !== "key_end" &&
-                  selectingTarget?.keyField === i
-                    ? "bg-stone-600 text-white"
-                    : ""
-                }`}
-                onClick={() =>
-                  handleTargetClick({ type: "comp", keyField: (i + 1) })
-                }
-              >
-                선택
-              </button>
-            </div>
-          ))} */}
+          {Object.entries(compValue["value"]).map(([_valueField, cell], i) => {
+            return (
+              <div className="flex mt-1 border-1 rounded-lg p-1" key={i}>
+                <div className="w-[50px]"></div>
+                <div className="w-[50px]">{`열_${_valueField}`}</div>
+                <MenuDiv>{cell["headerTitle"]}</MenuDiv>
+                <button
+                  disabled={
+                    i === 0
+                      ? !compValue["key"]["end"]["value"]
+                      : !compValue["value"][i]["value"]
+                  }
+                  className={`px-4 ${
+                    selectedTarget.type === "comp" &&
+                    selectedTarget.valueField &&
+                    selectedTarget.valueField === _valueField
+                      ? "bg-stone-600 text-white"
+                      : ""
+                  }`}
+                  onClick={() =>
+                    handleTargetClick({ type: "comp", valueField: _valueField })
+                  }
+                >
+                  선택
+                </button>
+              </div>
+            );
+          })}
         </div>
       </div>
       <div className="flex flex-col justify-end mr-20">
