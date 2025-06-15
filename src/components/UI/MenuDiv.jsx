@@ -1,10 +1,4 @@
-import type { ReactNode } from "react";
-
-interface MenuDivProps {
-  children: ReactNode;
-}
-
-const MenuDiv = ({ children }: MenuDivProps) => {
+const MenuDiv = ({ children }) => {
   return (
     <div className="px-1 w-[300px] border-1 mr-5 text-base leading-[1rem] flex items-center">
       {children}

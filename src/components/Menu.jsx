@@ -1,14 +1,6 @@
-import type { selectRefType } from "./types/selectedRef";
-import type { workbookDataType } from "./types/workbook";
 import MenuDiv from "./UI/MenuDiv";
 
-interface MenuDivProps {
-  fixValue: workbookDataType;
-  compValue: workbookDataType;
-  selectedTarget: selectRefType;
-  handleTargetClick: (selectedRef: selectRefType) => void;
-  runCompare: () => void;
-}
+// 메뉴 컴포넌트 잘게 쪼개기
 
 const Menu = ({
   fixValue,
@@ -16,7 +8,7 @@ const Menu = ({
   selectedTarget,
   handleTargetClick,
   runCompare,
-}: MenuDivProps) => {
+}) => {
   return (
     <div className="flex justify-center">
       <div className="flex flex-1 space-x-2">
@@ -31,8 +23,8 @@ const Menu = ({
                   <MenuDiv>{fixValue["key"]["start"]["value"]}</MenuDiv>
                   <button
                     className={`px-4 ${
-                      selectedTarget?.type === "fix" &&
-                      selectedTarget?.keyField === "key_start"
+                      selectedTarget.type === "fix" &&
+                      selectedTarget.keyField === "key_start"
                         ? "bg-stone-600 text-white"
                         : ""
                     }`}
@@ -49,8 +41,8 @@ const Menu = ({
                   <button
                     disabled={!fixValue["key"]["start"]["value"]}
                     className={`px-4 ${
-                      selectedTarget?.type === "fix" &&
-                      selectedTarget?.keyField === "key_end"
+                      selectedTarget.type === "fix" &&
+                      selectedTarget.keyField === "key_end"
                         ? "bg-stone-600 text-white"
                         : ""
                     }`}
@@ -64,6 +56,37 @@ const Menu = ({
               </div>
             </div>
           </div>
+          {Object.entries(fixValue["value"]).map(([key, cell]) => {
+            const i = parseInt(key);
+
+            return (
+              <div className="flex mt-1 border-1 rounded-lg p-1" key={key}>
+                <div className="w-[50px]"></div>
+                <div className="w-[50px]">{`열_${key}`}</div>
+                {/* <MenuDiv>{cell["value"]}</MenuDiv> */}
+                <button
+                  disabled={
+                    i === 0
+                      ? !fixValue["key"]["end"]["value"]
+                      : !fixValue["value"][i - 1]["value"]
+                  }
+                  className={`px-4 ${
+                    selectedTarget.type === "fix" &&
+                    selectedTarget.keyField !== "key_start" &&
+                    selectedTarget.keyField !== "key_end" &&
+                    selectedTarget.valueField === i
+                      ? "bg-stone-600 text-white"
+                      : ""
+                  }`}
+                  onClick={() =>
+                    handleTargetClick({ type: "fix", valueField: "1" })
+                  }
+                >
+                  선택
+                </button>
+              </div>
+            );
+          })}
 
           {/* {fixValue["value"].map((d: any, i: 0 | 1) => (
             <div className="flex mt-1 border-1 rounded-lg p-1" key={i}>
@@ -103,8 +126,8 @@ const Menu = ({
                   <MenuDiv>{compValue["key"]["start"]["value"]}</MenuDiv>
                   <button
                     className={`px-4 ${
-                      selectedTarget?.type === "comp" &&
-                      selectedTarget?.keyField === "key_start"
+                      selectedTarget.type === "comp" &&
+                      selectedTarget.keyField === "key_start"
                         ? "bg-stone-600 text-white"
                         : ""
                     }`}
@@ -121,8 +144,8 @@ const Menu = ({
                   <button
                     disabled={!compValue["key"]["start"]["value"]}
                     className={`px-4 ${
-                      selectedTarget?.type === "comp" &&
-                      selectedTarget?.keyField === "key_end"
+                      selectedTarget.type === "comp" &&
+                      selectedTarget.keyField === "key_end"
                         ? "bg-stone-600 text-white"
                         : ""
                     }`}

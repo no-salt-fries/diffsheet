@@ -2,22 +2,8 @@ import { v4 as uuidv4 } from "uuid";
 
 import React, { useState } from "react";
 import DataGrid from "./DataGrid";
-import type { workbookDataType, workbookRefDataType } from "./types/workbook";
-import type { selectRefType } from "./types/selectedRef";
 
-interface WorkBookProps {
-  data: Record<string, any> | null;
-  setData: React.Dispatch<React.SetStateAction<Record<string, any> | null>>;
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  setFixValue: React.Dispatch<React.SetStateAction<workbookDataType>>;
-  setCompValue: React.Dispatch<React.SetStateAction<workbookDataType>>;
-  dataRef: React.RefObject<workbookRefDataType>;
-  selectedTargetRef: React.RefObject<selectRefType>;
-  sheetChangeButtonDisable: boolean;
-  setButtonDisable: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const WorkBook: React.FC<WorkBookProps> = ({
+const WorkBook = ({
   data,
   setData,
   setLoading,
@@ -28,7 +14,7 @@ const WorkBook: React.FC<WorkBookProps> = ({
   setFixValue,
   setCompValue,
 }) => {
-  const fileChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const fileChangeHandler = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
 

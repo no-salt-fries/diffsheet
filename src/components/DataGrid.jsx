@@ -2,24 +2,7 @@ import { utils } from "xlsx";
 import React, { useRef, useEffect, useState, useMemo } from "react";
 import canvasDatagrid from "canvas-datagrid";
 
-import type { selectRefType } from "./types/selectedRef";
-import {
-  workbookInitial,
-  type workbookDataType,
-  type workbookRefDataType,
-} from "./types/workbook";
-
-interface DataGridProps {
-  data: Record<string, any>;
-  setFixValue: React.Dispatch<React.SetStateAction<workbookDataType>>;
-  setCompValue: React.Dispatch<React.SetStateAction<workbookDataType>>;
-  dataRef: React.RefObject<workbookRefDataType>;
-  selectedTargetRef: React.RefObject<selectRefType>;
-  sheetChangeButtonDisable: boolean;
-  setButtonDisable: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const DataGrid: React.FC<DataGridProps> = ({
+const DataGrid = ({
   data,
   dataRef,
   selectedTargetRef,
@@ -31,7 +14,7 @@ const DataGrid: React.FC<DataGridProps> = ({
   const sheetNames = data["SheetNames"];
   const sheets = data["Sheets"];
 
-  const [sheetName, setSheetName] = useState<string>(sheetNames[0]);
+  const [sheetName, setSheetName] = useState < string > sheetNames[0];
 
   // sheetName, sheets변화를 제외한 부모 Component의 state변화 무시
   const currentSheetData = useMemo(() => {
@@ -39,11 +22,11 @@ const DataGrid: React.FC<DataGridProps> = ({
       header: 1,
       raw: false,
       defval: "",
-    }) as any[][];
+    });
   }, [sheetName, sheets]);
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<any>(null);
+  const containerRef = useRef < HTMLDivElement > null;
+  const gridRef = useRef < any > null;
 
   useEffect(() => {
     // currentSheetData가 바뀔 때 마다 아래의 코드가 실행
@@ -79,13 +62,13 @@ const DataGrid: React.FC<DataGridProps> = ({
       // selection(ActiveCell)이 하나만 존재하도록 설정
       grid.setAttribute("selectionFollowsActiveCell", true);
 
-      grid.style.height = "95%";
+      grid.style.height = "100%";
       grid.style.width = "100%";
 
       containerRef.current.style.width = "100%";
       containerRef.current.style.height = window.innerHeight - 200 + "px";
 
-      grid.addEventListener("beforesortcolumn", (e: any) => {
+      grid.addEventListener("beforesortcolumn", (e) => {
         e.preventDefault();
       });
 
@@ -95,7 +78,7 @@ const DataGrid: React.FC<DataGridProps> = ({
         "rgb(255 246 0 / 20%)",
       ];
 
-      //   grid.addEventListener("rendercell", (e: any) => {
+      //   grid.addEventListener("rendercell", (e) => {
       //     // type: fix | comp
       //     // field: key
       //     // 값이 존재하는 경우에는 해당 cell에 색을 설정
@@ -169,7 +152,7 @@ const DataGrid: React.FC<DataGridProps> = ({
       //     }
       //   });
 
-      grid.addEventListener("click", (e: any) => {
+      grid.addEventListener("click", (e) => {
         // 클릭하는 경우 > key_start, key_end, value
         // key_start, key_end는 rowIndex -1을 무시
         // value는 rowIndex -1을 무시 X
@@ -187,7 +170,8 @@ const DataGrid: React.FC<DataGridProps> = ({
         const cellValue = currentSheetData[e.cell.rowIndex][e.cell.columnIndex];
 
         // 눌려진 버튼에 따라서 fixValue, compValue에 값을 설정하는 함수
-        const handleValueUpdate = (selectedRef: selectRefType) => {
+        const handleValueUpdate = (selectedRef) => {
+          console.log(selectedRef);
           if (selectedRef.type !== null) {
             const selectedType = selectedRef.type;
             const setValue =
@@ -272,8 +256,8 @@ const DataGrid: React.FC<DataGridProps> = ({
                 newValueObj[valueField] = {
                   rowIndex,
                   columnIndex,
-                  value: cellValue,
                   headerTitle,
+                  value: cellValue,
                   type: null,
                 };
 
@@ -302,13 +286,13 @@ const DataGrid: React.FC<DataGridProps> = ({
               };
             }
           }
-
-          const target = selectedTargetRef.current;
-
-          if (target) {
-            handleValueUpdate(target);
-          }
         };
+
+        const target = selectedTargetRef.current;
+
+        if (target) {
+          handleValueUpdate(target);
+        }
       });
 
       grid.data = currentSheetData;
@@ -318,7 +302,7 @@ const DataGrid: React.FC<DataGridProps> = ({
 
   return (
     <div>
-      {data["SheetNames"].map((d: string, i: number) => (
+      {data["SheetNames"].map((d, i) => (
         <button
           className={`px-4 ${
             sheetChangeButtonDisable ? "" : "bg-stone-600 text-white"
