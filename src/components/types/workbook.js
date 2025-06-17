@@ -1,10 +1,6 @@
 export const workbookInitial = () => ({
   meta: { workbookId: null, sheetName: null },
   key: {
-    type: {
-      type: null,
-      format: null,
-    },
     start: {
       rowIndex: null,
       columnIndex: null,
@@ -16,6 +12,10 @@ export const workbookInitial = () => ({
       columnIndex: null,
       value: null,
       headerTitle: null,
+    },
+    type: {
+      type: null,
+      format: null,
     },
   },
   value: {

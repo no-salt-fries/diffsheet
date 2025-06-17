@@ -27,6 +27,11 @@ const App = () => {
   // handleTargetClick({ type: "fix", keyField: "key_start" })
   // handleTargetClick({ type: "fix", valueField: "1" })
   // handleTargetClick({ type: null })
+
+  // key_끝 선택버튼을 눌렀을 때 key_시작에 값이 설정되어있지 않으면 해당 부분에 빨간색 테두리 설정하기
+  // 열_1 선택버튼을 눌렀을 때 key부분(시작, 끝, 타입, 포맷)에서 값이 설정되어있지 않은 부분에 빨간색 테두리 설정하기
+  // 열_2 선택버튼을 눌렀을 때 열_1에서 값이 설정되어있지 않은 부분에 빨간색 테두리 설정하기
+  // 엄청복잡하네..
   const handleTargetClick = (_selectedTargetRef) => {
     const isSame =
       selectedTarget.type === _selectedTargetRef.type &&
@@ -41,6 +46,8 @@ const App = () => {
       setSelectedTarget(initialselectedRef);
       selectedTargetRef.current = initialselectedRef;
     } else {
+      // 여기서 빨간색 테두리를 설정하는 걸 따져봐야할듯
+      // 근데 빨간색 테두리는 어떻게 설정하지 ㅋㅋ
       setSelectedTarget(_selectedTargetRef);
       selectedTargetRef.current = _selectedTargetRef;
     }
@@ -54,6 +61,7 @@ const App = () => {
   });
 
   // fixValue, compValue는 Menu에서만 사용, 나머지 component에서 리랜더링 방지처리하기
+  // type, value를 굳이 여기 저장해야할 필요가있나
   const [fixValue, setFixValue] = useState(workbookInitial);
   const [compValue, setCompValue] = useState(workbookInitial);
 
