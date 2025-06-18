@@ -23,6 +23,7 @@ const Menu = ({
                 <div className="w-[50px]">시작</div>
                 <MenuDiv>{fixValue["key"]["start"]["value"]}</MenuDiv>
                 <MenuBtn
+                  wbState={fixValue}
                   selectedTarget={selectedTarget}
                   handleTargetClick={handleTargetClick}
                   selected={{ type: "fix", keyField: "key_start" }}
@@ -31,20 +32,12 @@ const Menu = ({
               <div className="flex mt-1">
                 <div className="w-[50px]">끝</div>
                 <MenuDiv>{fixValue["key"]["end"]["value"]}</MenuDiv>
-                <button
-                  disabled={!fixValue["key"]["start"]["value"]}
-                  className={`px-4 ${
-                    selectedTarget.type === "fix" &&
-                    selectedTarget.keyField === "key_end"
-                      ? "bg-stone-600 text-white"
-                      : ""
-                  }`}
-                  onClick={() =>
-                    handleTargetClick({ type: "fix", keyField: "key_end" })
-                  }
-                >
-                  선택
-                </button>
+                <MenuBtn
+                  wbState={fixValue}
+                  selectedTarget={selectedTarget}
+                  handleTargetClick={handleTargetClick}
+                  selected={{ type: "fix", keyField: "key_end" }}
+                />
               </div>
               <SelectBox category={"key"} />
             </div>
@@ -57,28 +50,15 @@ const Menu = ({
                     <div className="w-[50px]"></div>
                     <div className="w-[50px]">{`열_${_valueField}`}</div>
                     <MenuDiv>{cell["headerTitle"]}</MenuDiv>
-                    <button
-                      disabled={
-                        i === 0
-                          ? !fixValue["key"]["end"]["value"]
-                          : !fixValue["value"][i]["value"]
-                      }
-                      className={`px-4 ${
-                        selectedTarget.type === "fix" &&
-                        selectedTarget.valueField &&
-                        selectedTarget.valueField === _valueField
-                          ? "bg-stone-600 text-white"
-                          : ""
-                      }`}
-                      onClick={() =>
-                        handleTargetClick({
-                          type: "fix",
-                          valueField: _valueField,
-                        })
-                      }
-                    >
-                      선택
-                    </button>
+                    <MenuBtn
+                      wbState={fixValue}
+                      selectedTarget={selectedTarget}
+                      handleTargetClick={handleTargetClick}
+                      selected={{
+                        type: "fix",
+                        valueField: _valueField,
+                      }}
+                    />
                   </div>
                   <SelectBox category={"value"} />
                 </div>
@@ -94,37 +74,22 @@ const Menu = ({
               <div className="flex">
                 <div className="w-[50px]">시작</div>
                 <MenuDiv>{compValue["key"]["start"]["value"]}</MenuDiv>
-                <button
-                  className={`px-4 ${
-                    selectedTarget.type === "comp" &&
-                    selectedTarget.keyField === "key_start"
-                      ? "bg-stone-600 text-white"
-                      : ""
-                  }`}
-                  onClick={() =>
-                    handleTargetClick({ type: "comp", keyField: "key_start" })
-                  }
-                >
-                  선택
-                </button>
+                <MenuBtn
+                  wbState={fixValue}
+                  selectedTarget={selectedTarget}
+                  handleTargetClick={handleTargetClick}
+                  selected={{ type: "comp", keyField: "key_start" }}
+                />
               </div>
               <div className="flex mt-1">
                 <div className="w-[50px]">끝</div>
                 <MenuDiv>{compValue["key"]["end"]["value"]}</MenuDiv>
-                <button
-                  disabled={!compValue["key"]["start"]["value"]}
-                  className={`px-4 ${
-                    selectedTarget.type === "comp" &&
-                    selectedTarget.keyField === "key_end"
-                      ? "bg-stone-600 text-white"
-                      : ""
-                  }`}
-                  onClick={() =>
-                    handleTargetClick({ type: "comp", keyField: "key_end" })
-                  }
-                >
-                  선택
-                </button>
+                <MenuBtn
+                  wbState={fixValue}
+                  selectedTarget={selectedTarget}
+                  handleTargetClick={handleTargetClick}
+                  selected={{ type: "comp", keyField: "key_end" }}
+                />
               </div>
               <div className="flex mt-1">
                 <div className="w-[50px]">타입</div>
@@ -156,28 +121,15 @@ const Menu = ({
                     <div className="w-[50px]"></div>
                     <div className="w-[50px]">{`열_${_valueField}`}</div>
                     <MenuDiv>{cell["headerTitle"]}</MenuDiv>
-                    <button
-                      disabled={
-                        i === 0
-                          ? !compValue["key"]["end"]["value"]
-                          : !compValue["value"][i]["value"]
-                      }
-                      className={`px-4 ${
-                        selectedTarget.type === "comp" &&
-                        selectedTarget.valueField &&
-                        selectedTarget.valueField === _valueField
-                          ? "bg-stone-600 text-white"
-                          : ""
-                      }`}
-                      onClick={() =>
-                        handleTargetClick({
-                          type: "comp",
-                          valueField: _valueField,
-                        })
-                      }
-                    >
-                      선택
-                    </button>
+                    <MenuBtn
+                      wbState={fixValue}
+                      selectedTarget={selectedTarget}
+                      handleTargetClick={handleTargetClick}
+                      selected={{
+                        type: "comp",
+                        valueField: _valueField,
+                      }}
+                    />
                   </div>
                   <div className="flex mt-1">
                     <div className="w-[50px]"></div>
