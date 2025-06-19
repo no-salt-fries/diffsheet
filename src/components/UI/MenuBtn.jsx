@@ -1,12 +1,11 @@
 import React from "react";
 
-const MenuBtn = ({ wbState, selectedTarget, handleTargetClick, selected }) => {
+// props 이름들이 애매함, 수정 필요
+const MenuBtn = ({ wbState, selectedTarget, selected, handleTargetClick }) => {
   if (wbState === undefined) return;
   if (selected.type === null) return;
 
   let disabled = false;
-
-  console.log(selected);
 
   if ("keyField" in selected) {
     if (selected.keyField === "key_end") {
@@ -25,9 +24,6 @@ const MenuBtn = ({ wbState, selectedTarget, handleTargetClick, selected }) => {
       }
     }
   }
-  // keyField: key_end -> keyField_key_start
-  // valueField: 1 -> keyField_key_end
-  // valueField: 2 -> valueField_1
 
   let selection = null;
   const _type = selected.type;

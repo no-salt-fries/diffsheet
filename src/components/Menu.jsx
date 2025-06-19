@@ -75,7 +75,7 @@ const Menu = ({
                 <div className="w-[50px]">시작</div>
                 <MenuDiv>{compValue["key"]["start"]["value"]}</MenuDiv>
                 <MenuBtn
-                  wbState={fixValue}
+                  wbState={compValue}
                   selectedTarget={selectedTarget}
                   handleTargetClick={handleTargetClick}
                   selected={{ type: "comp", keyField: "key_start" }}
@@ -85,32 +85,13 @@ const Menu = ({
                 <div className="w-[50px]">끝</div>
                 <MenuDiv>{compValue["key"]["end"]["value"]}</MenuDiv>
                 <MenuBtn
-                  wbState={fixValue}
+                  wbState={compValue}
                   selectedTarget={selectedTarget}
                   handleTargetClick={handleTargetClick}
                   selected={{ type: "comp", keyField: "key_end" }}
                 />
               </div>
-              <div className="flex mt-1">
-                <div className="w-[50px]">타입</div>
-                <MenuDiv width={"select"}>
-                  <select className="flex-1 outline-0">
-                    <option className="w-full" value="">
-                      선택한 데이터의 타입을 선택해주세요
-                    </option>
-                    <option>1</option>
-                  </select>
-                </MenuDiv>
-              </div>
-              <div className="flex mt-1">
-                <div className="w-[50px]">포맷</div>
-                <MenuDiv width={"input"}>
-                  <input
-                    className="flex-1 outline-0"
-                    placeholder="YYYY/MM/DD HH:MM:SS(공백도 확실하게)"
-                  />
-                </MenuDiv>
-              </div>
+              <SelectBox category={"key"} />
             </div>
           </div>
           {Object.entries(compValue["value"]).map(([_valueField, cell], i) => {
@@ -122,7 +103,7 @@ const Menu = ({
                     <div className="w-[50px]">{`열_${_valueField}`}</div>
                     <MenuDiv>{cell["headerTitle"]}</MenuDiv>
                     <MenuBtn
-                      wbState={fixValue}
+                      wbState={compValue}
                       selectedTarget={selectedTarget}
                       handleTargetClick={handleTargetClick}
                       selected={{
@@ -131,18 +112,7 @@ const Menu = ({
                       }}
                     />
                   </div>
-                  <div className="flex mt-1">
-                    <div className="w-[50px]"></div>
-                    <div className="w-[50px]">타입</div>
-                    <MenuDiv width={"select"}>
-                      <select className="flex-1 outline-0">
-                        <option className="w-full" value="">
-                          선택한 데이터의 타입을 선택해주세요
-                        </option>
-                        <option>1</option>
-                      </select>
-                    </MenuDiv>
-                  </div>
+                  <SelectBox category={"value"} />
                 </div>
               </div>
             );

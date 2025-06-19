@@ -87,8 +87,6 @@ const DataGrid = ({
         );
 
         if (target) {
-          console.log(target);
-
           const valueCellInfo = target[1]["value"];
 
           Object.entries(valueCellInfo).map(([_valueField, _valueCell]) => {
@@ -232,7 +230,9 @@ const DataGrid = ({
                 };
               }
             } else {
+              // rowIndex -1 클릭했을 때 해결하기
               const { valueField } = selectedRef;
+              console.log(e.cell);
               const cellValue =
                 currentSheetData[e.cell.rowIndex][e.cell.columnIndex];
 
