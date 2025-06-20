@@ -25,24 +25,6 @@ const MenuBtn = ({ wbState, selectedTarget, selected, handleTargetClick }) => {
     }
   }
 
-  let selection = null;
-  const _type = selected.type;
-
-  if ("keyField" in selected) {
-    selection = {
-      type: _type,
-      keyField: selected.keyField,
-    };
-  } else {
-    selection = {
-      type: _type,
-      valueField: selected.valueField,
-    };
-  }
-
-  console.log(selectedTarget.keyField);
-  console.log(selected.keyField);
-
   return (
     <button
       disabled={disabled}
@@ -59,7 +41,7 @@ const MenuBtn = ({ wbState, selectedTarget, selected, handleTargetClick }) => {
           ? "border-gray-500 text-gray-500 bg-gray-300"
           : "hover:bg-green-200 border-green-600  text-green-600"
       } `}
-      onClick={() => handleTargetClick(selection)}
+      onClick={() => handleTargetClick(selected)}
     >
       선택
     </button>

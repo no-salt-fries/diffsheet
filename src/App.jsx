@@ -71,23 +71,27 @@ const App = () => {
 
     // 선택 된 부분만 가지고와서 새로운 grid에 보여주기
     // 바뀐 순서를 어떻게 설정할지를 고민해봐야할듯
-    const getInfo = (objRef) => {
-      const workBookId = objRef.meta.workbookId;
-      const workBookSheetName = objRef.meta.sheetName;
+    const getInfo = (wbState) => {
+      const workBookId = wbState.meta.workbookId;
+      const workBookSheetName = wbState.meta.sheetName;
 
-      // 굳이 이렇게 split을 해야해? 그냥 저장할 때 row따로 column따로 저장하기
-      const rowStartIndex = objRef.key.start.cell.split(":")[0];
-      const rowEndIndex = objRef.key.end.cell.split(":")[0];
+      const startIndex = parseInt(wbState.key.start.rowIndex);
+      const endIndex = parseInt(wbState.key.end.rowIndex);
 
-      const fixColumnIndex = objRef.key.start.cell.split(":")[1];
+      const rowStartIndex = startIndex <= endIndex ? startIndex : endIndex;
 
-      const valueColumnIndexes = objRef.value.map((d) => {
-        console.log(d["cell"]);
-        return {
-          id: d["id"],
-          columnIndex: d["cell"].split(":")[1],
-        };
-      });
+      const rowEndIndex = startIndex > endIndex ? startIndex : endIndex;
+
+      const fixColumnIndex = wbState.key.start.columnIndex;
+
+      const valueColumnIndexes = Object.entries(wbState.value).map(
+        ([_valueField, value], i) => {
+          return {
+            valueField: _valueField,
+            columnIndex: value.columnIndex,
+          };
+        }
+      );
 
       return [
         workBookId,
@@ -109,37 +113,6 @@ const App = () => {
       }
     };
 
-    // const selectedData = (
-    //   _data,
-    //   _rowStartIndex,
-    //   _fixColumnIndex,
-    //   _valueColumnIndexes
-    // ) => {
-    //   return _data.map((r, i) => {
-    //     const newRow = {
-    //       originalRowIndex: parseInt(_rowStartIndex) + i,
-    //       offset: 0,
-    //       key: r[_fixColumnIndex]["v"],
-    //     };
-    //     // columnIndex + 1 해줘야함
-    //     // key = r[keyRowIndex]
-
-    //     for (let i = 0; i < _valueColumnIndexes.length; i++) {
-    //       const targetColumn =
-    //         _valueColumnIndexes.find((d) => d.id === i + 1)?.columnIndex ??
-    //         null;
-
-    //       if (targetColumn) {
-    //         newRow[`target_${i}`] = r[targetColumn]["v"];
-    //       } else {
-    //         newRow[`target_${i}`] = null;
-    //       }
-    //     }
-
-    //     return newRow;
-    //   });
-    // };
-
     const [
       f_workBookId,
       f_workBookSheetName,
@@ -147,7 +120,7 @@ const App = () => {
       f_rowEndIndex,
       f_fixColumnIndex,
       f_valueColumnIndexes,
-    ] = getInfo(dataRef.current.fix);
+    ] = getInfo(fixValue);
 
     const [
       c_workBookId,
@@ -156,7 +129,7 @@ const App = () => {
       c_rowEndIndex,
       c_fixColumnIndex,
       c_valueColumnIndexes,
-    ] = getInfo(dataRef.current.comp);
+    ] = getInfo(compValue);
 
     const f_sheet = getSheet(f_workBookId, f_workBookSheetName);
     const c_sheet = getSheet(c_workBookId, c_workBookSheetName);
@@ -175,8 +148,20 @@ const App = () => {
       parseInt(c_rowEndIndex) + 1
     );
 
-    // console.log(f_keyRowIndex, f_keyColumnIndex, f_valueColumnIndexes, f_data);
-    // console.log(c_keyRowIndex, c_keyColumnIndex, c_valueColumnIndexes, c_data);
+    console.log(
+      f_rowStartIndex,
+      f_rowEndIndex,
+      f_fixColumnIndex,
+      f_valueColumnIndexes,
+      f_data
+    );
+    console.log(
+      c_rowStartIndex,
+      c_rowEndIndex,
+      c_fixColumnIndex,
+      c_valueColumnIndexes,
+      c_data
+    );
 
     // const selected_f_data = selectedData(
     //   f_data,
@@ -203,7 +188,9 @@ const App = () => {
         compValue={compValue}
         selectedTarget={selectedTarget}
         handleTargetClick={handleTargetClick}
-        runCompare={() => {}}
+        runCompare={runCompare}
+        setFixValue={setFixValue}
+        setCompValue={setCompValue}
       />
       <div className="flex flex-1 w-full">
         <div className="w-1/2">

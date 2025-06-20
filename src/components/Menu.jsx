@@ -10,6 +10,8 @@ const Menu = ({
   selectedTarget,
   handleTargetClick,
   runCompare,
+  setFixValue,
+  setCompValue,
 }) => {
   return (
     <div className="flex justify-center">
@@ -39,7 +41,7 @@ const Menu = ({
                   selected={{ type: "fix", keyField: "key_end" }}
                 />
               </div>
-              <SelectBox category={"key"} />
+              <SelectBox category={"key"} setValue={setFixValue} />
             </div>
           </div>
           {Object.entries(fixValue["value"]).map(([_valueField, cell], i) => {
@@ -60,7 +62,10 @@ const Menu = ({
                       }}
                     />
                   </div>
-                  <SelectBox category={"value"} />
+                  <SelectBox
+                    category={`${_valueField}`}
+                    setValue={setFixValue}
+                  />
                 </div>
               </div>
             );
@@ -91,7 +96,7 @@ const Menu = ({
                   selected={{ type: "comp", keyField: "key_end" }}
                 />
               </div>
-              <SelectBox category={"key"} />
+              <SelectBox category={"key"} setValue={setCompValue} />
             </div>
           </div>
           {Object.entries(compValue["value"]).map(([_valueField, cell], i) => {
@@ -112,7 +117,7 @@ const Menu = ({
                       }}
                     />
                   </div>
-                  <SelectBox category={"value"} />
+                  <SelectBox category={"value"} setValue={setCompValue} />
                 </div>
               </div>
             );

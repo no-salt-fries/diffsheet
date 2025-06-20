@@ -1,39 +1,71 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import MenuDiv from "./UI/MenuDiv";
 
-const SelectBox = ({ category }) => {
+const SelectBox = ({ category, setValue }) => {
   const [optionType, setOptionType] = useState("default");
   const [format, setFormat] = useState(null);
 
-  const showInput = category === "key";
+  const inputRef = useRef(null);
+
+  // key에 속한 select인 경우 옵션이 "날짜", "숫자", "문자"
+  // key에 속하지 않은 경우 옵션이 "숫자", "문자"
+  // 스타일링에도 차이가 있음 >> 모두 똑같은 레이아웃을 같도록 추후에 수정하기
+  const keyFieldSelect = category === "key";
+
+  useEffect(() => {
+    if (keyFieldSelect && optionType === "date" && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [optionType]);
 
   const handleSelect = (e) => {
-    const selectedOption = e.target.value;
+    let selectedOption = e.target.value;
+    if (selectedOption === "default") {
+      selectedOption = null;
+    }
     setOptionType(selectedOption);
+    if (keyFieldSelect) {
+      setValue((prev) => ({
+        ...prev,
+        key: {
+          ...prev["key"],
+          type: { ...prev["key"]["type"], type: selectedOption },
+        },
+      }));
+    } else {
+      setValue((prev) => ({
+        ...prev,
+        value: {
+          ...prev["value"],
+          [category]: { ...prev["value"]["category"], type: selectedOption },
+        },
+      }));
+    }
   };
 
   return (
     <>
       <div className="flex mt-1">
-        {!showInput && <div className="w-[50px]"></div>}
+        {!keyFieldSelect && <div className="w-[50px]"></div>}
         <div className="w-[50px]">타입</div>
         <MenuDiv width={"select"}>
           <select className="flex-1 outline-0" onChange={handleSelect}>
             <option className="w-full" value="default">
               선택한 데이터의 타입을 선택해주세요
             </option>
-            {showInput && <option value="date">날짜</option>}
+            {keyFieldSelect && <option value="date">날짜</option>}
             <option value="number">숫자</option>
             <option value="string">문자</option>
           </select>
         </MenuDiv>
       </div>
-      {showInput && (
+      {keyFieldSelect && (
         <div className="flex mt-1">
           <div className="w-[50px]">포맷</div>
           <MenuDiv width={"input"}>
             <input
-              className="flex-1 outline-0"
+              ref={inputRef}
+              className="flex-1 outline-0 focus:bg-yellow-100"
               disabled={optionType !== "date"}
               placeholder={`${
                 optionType === "date"

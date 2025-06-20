@@ -144,8 +144,6 @@ const DataGrid = ({
       });
 
       grid.addEventListener("click", (e) => {
-        console.log("click");
-        console.log(e);
         if (!e.cell) return;
 
         const workbookId = data["Custprops"]["id"];
