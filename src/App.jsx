@@ -117,13 +117,18 @@ const App = () => {
 
       const rowEndIndex = startIndex > endIndex ? startIndex : endIndex;
 
-      const fixColumnIndex = wbState.key.start.columnIndex;
+      const fixColumnIndex = {
+        columnIndex: wbState.key.start.columnIndex,
+        type: wbState.key.type.type,
+        format: wbState.key.type.format,
+      };
 
       const valueColumnIndexes = Object.entries(wbState.value).map(
         ([_valueField, value], i) => {
           return {
             valueField: _valueField,
             columnIndex: value.columnIndex,
+            type: value.type,
           };
         }
       );
@@ -156,7 +161,7 @@ const App = () => {
       f_workBookSheetName,
       f_rowStartIndex,
       f_rowEndIndex,
-      f_fixColumnIndex,
+      f_columnIndex,
       f_valueColumnIndexes,
     ] = getInfo(fixValue);
 
@@ -165,7 +170,7 @@ const App = () => {
       c_workBookSheetName,
       c_rowStartIndex,
       c_rowEndIndex,
-      c_fixColumnIndex,
+      c_columnIndex,
       c_valueColumnIndexes,
     ] = getInfo(compValue);
 
@@ -186,20 +191,8 @@ const App = () => {
       parseInt(c_rowEndIndex) + 1
     );
 
-    console.log(
-      f_rowStartIndex,
-      f_rowEndIndex,
-      f_fixColumnIndex,
-      f_valueColumnIndexes,
-      f_data
-    );
-    console.log(
-      c_rowStartIndex,
-      c_rowEndIndex,
-      c_fixColumnIndex,
-      c_valueColumnIndexes,
-      c_data
-    );
+    console.log(f_columnIndex, f_valueColumnIndexes, f_data);
+    console.log(c_columnIndex, c_valueColumnIndexes, c_data);
 
     // const selected_f_data = selectedData(
     //   f_data,

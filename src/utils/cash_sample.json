@@ -1,0 +1,3657 @@
+{
+    "columnIndex": 0,
+    "type": "date",
+    "format": "YYYY-MM-DD"
+}
+
+[
+    {
+        "valueField": "1",
+        "columnIndex": 9,
+        "type": "number"
+    },
+    {
+        "valueField": "2",
+        "columnIndex": 8,
+        "type": "number"
+    }
+]
+
+[
+    [
+        {
+            "t": "s",
+            "v": "2025-03-01",
+            "r": "<t>2025-03-01</t>",
+            "h": "2025-03-01",
+            "z": "General",
+            "w": "2025-03-01",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "2024년 순세계 잉여금 수입",
+            "r": "<t>2024년 순세계 잉여금 수입</t>",
+            "h": "2024년 순세계 잉여금 수입",
+            "z": "General",
+            "w": "2024년 순세계 잉여금 수입",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "초안유치원",
+            "r": "<t>초안유치원</t>",
+            "h": "초안유치원",
+            "z": "General",
+            "w": "초안유치원",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "그 밖의수입",
+            "r": "<t>그 밖의수입</t>",
+            "h": "그 밖의수입",
+            "z": "General",
+            "w": "그 밖의수입",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "순세계잉여금",
+            "r": "<t>순세계잉여금</t>",
+            "h": "순세계잉여금",
+            "z": "General",
+            "w": "순세계잉여금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 727927,
+            "z": "#,##0_ ",
+            "w": "727,927 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 727927,
+            "z": "#,##0_ ",
+            "w": "727,927 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 727927,
+            "z": "#,##0_ ",
+            "w": "727,927 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-01",
+            "r": "<t>2025-03-01</t>",
+            "h": "2025-03-01",
+            "z": "General",
+            "w": "2025-03-01",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(00004)신학기 준비물품",
+            "r": "<t>(00004)신학기 준비물품</t>",
+            "h": "(00004)신학기 준비물품",
+            "z": "General",
+            "w": "(00004)신학기 준비물품",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "쿠팡",
+            "r": "<t>쿠팡</t>",
+            "h": "쿠팡",
+            "z": "General",
+            "w": "쿠팡",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "일반교육활동비",
+            "r": "<t>일반교육활동비</t>",
+            "h": "일반교육활동비",
+            "z": "General",
+            "w": "일반교육활동비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "교재교구구입비",
+            "r": "<t>교재교구구입비</t>",
+            "h": "교재교구구입비",
+            "z": "General",
+            "w": "교재교구구입비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 16180,
+            "z": "#,##0_ ",
+            "w": "16,180 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 711747,
+            "z": "#,##0_ ",
+            "w": "711,747 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-01",
+            "r": "<t>2025-03-01</t>",
+            "h": "2025-03-01",
+            "z": "General",
+            "w": "2025-03-01",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(00005)행사준비 교직원 식대",
+            "r": "<t>(00005)행사준비 교직원 식대</t>",
+            "h": "(00005)행사준비 교직원 식대",
+            "z": "General",
+            "w": "(00005)행사준비 교직원 식대",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "김지향",
+            "r": "<t>김지향</t>",
+            "h": "김지향",
+            "z": "General",
+            "w": "김지향",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "업무추진비",
+            "r": "<t>업무추진비</t>",
+            "h": "업무추진비",
+            "z": "General",
+            "w": "업무추진비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "직책급업무추진비",
+            "r": "<t>직책급업무추진비</t>",
+            "h": "직책급업무추진비",
+            "z": "General",
+            "w": "직책급업무추진비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 83500,
+            "z": "#,##0_ ",
+            "w": "83,500 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 628247,
+            "z": "#,##0_ ",
+            "w": "628,247 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-03",
+            "r": "<t>2025-03-03</t>",
+            "h": "2025-03-03",
+            "z": "General",
+            "w": "2025-03-03",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(00006)유아 급식 그릇 구입",
+            "r": "<t>(00006)유아 급식 그릇 구입</t>",
+            "h": "(00006)유아 급식 그릇 구입",
+            "z": "General",
+            "w": "(00006)유아 급식 그릇 구입",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(주)아성다이소-번동점",
+            "r": "<t>(주)아성다이소-번동점</t>",
+            "h": "(주)아성다이소-번동점",
+            "z": "General",
+            "w": "(주)아성다이소-번동점",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "일반교육활동비",
+            "r": "<t>일반교육활동비</t>",
+            "h": "일반교육활동비",
+            "z": "General",
+            "w": "일반교육활동비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "일반급식비간식비",
+            "r": "<t>일반급식비간식비</t>",
+            "h": "일반급식비간식비",
+            "z": "General",
+            "w": "일반급식비간식비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 45200,
+            "z": "#,##0_ ",
+            "w": "45,200 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 583047,
+            "z": "#,##0_ ",
+            "w": "583,047 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-04",
+            "r": "<t>2025-03-04</t>",
+            "h": "2025-03-04",
+            "z": "General",
+            "w": "2025-03-04",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(00007) 주차비",
+            "r": "<t>(00007) 주차비</t>",
+            "h": "(00007) 주차비",
+            "z": "General",
+            "w": "(00007) 주차비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "아마노코리아 (잠실 중앙상가 주차장)",
+            "r": "<t>아마노코리아 (잠실 중앙상가 주차장)</t>",
+            "h": "아마노코리아 (잠실 중앙상가 주차장)",
+            "z": "General",
+            "w": "아마노코리아 (잠실 중앙상가 주차장)",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "관리운영비",
+            "r": "<t>관리운영비</t>",
+            "h": "관리운영비",
+            "z": "General",
+            "w": "관리운영비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수수료및제세공과금",
+            "r": "<t>수수료및제세공과금</t>",
+            "h": "수수료및제세공과금",
+            "z": "General",
+            "w": "수수료및제세공과금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 5500,
+            "z": "#,##0_ ",
+            "w": "5,500 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 577547,
+            "z": "#,##0_ ",
+            "w": "577,547 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-04",
+            "r": "<t>2025-03-04</t>",
+            "h": "2025-03-04",
+            "z": "General",
+            "w": "2025-03-04",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(00008)입학준비 물품",
+            "r": "<t>(00008)입학준비 물품</t>",
+            "h": "(00008)입학준비 물품",
+            "z": "General",
+            "w": "(00008)입학준비 물품",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "두원아이콘",
+            "r": "<t>두원아이콘</t>",
+            "h": "두원아이콘",
+            "z": "General",
+            "w": "두원아이콘",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "일반교육활동비",
+            "r": "<t>일반교육활동비</t>",
+            "h": "일반교육활동비",
+            "z": "General",
+            "w": "일반교육활동비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "교재교구구입비",
+            "r": "<t>교재교구구입비</t>",
+            "h": "교재교구구입비",
+            "z": "General",
+            "w": "교재교구구입비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 1308000,
+            "z": "#,##0_ ",
+            "w": "1,308,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": -730453,
+            "z": "#,##0_ ",
+            "w": "-730,453 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-05",
+            "r": "<t>2025-03-05</t>",
+            "h": "2025-03-05",
+            "z": "General",
+            "w": "2025-03-05",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(00010)통학차량 주유비",
+            "r": "<t>(00010)통학차량 주유비</t>",
+            "h": "(00010)통학차량 주유비",
+            "z": "General",
+            "w": "(00010)통학차량 주유비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(주)자연에너지 번동주유소",
+            "r": "<t>(주)자연에너지 번동주유소</t>",
+            "h": "(주)자연에너지 번동주유소",
+            "z": "General",
+            "w": "(주)자연에너지 번동주유소",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "그밖의교육활동비",
+            "r": "<t>그밖의교육활동비</t>",
+            "h": "그밖의교육활동비",
+            "z": "General",
+            "w": "그밖의교육활동비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "통학차량이용비",
+            "r": "<t>통학차량이용비</t>",
+            "h": "통학차량이용비",
+            "z": "General",
+            "w": "통학차량이용비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 100000,
+            "z": "#,##0_ ",
+            "w": "100,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": -830453,
+            "z": "#,##0_ ",
+            "w": "-830,453 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-05",
+            "r": "<t>2025-03-05</t>",
+            "h": "2025-03-05",
+            "z": "General",
+            "w": "2025-03-05",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(00011)통학차량 주유비",
+            "r": "<t>(00011)통학차량 주유비</t>",
+            "h": "(00011)통학차량 주유비",
+            "z": "General",
+            "w": "(00011)통학차량 주유비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "태릉솔밭주유소",
+            "r": "<t>태릉솔밭주유소</t>",
+            "h": "태릉솔밭주유소",
+            "z": "General",
+            "w": "태릉솔밭주유소",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "그밖의교육활동비",
+            "r": "<t>그밖의교육활동비</t>",
+            "h": "그밖의교육활동비",
+            "z": "General",
+            "w": "그밖의교육활동비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "통학차량이용비",
+            "r": "<t>통학차량이용비</t>",
+            "h": "통학차량이용비",
+            "z": "General",
+            "w": "통학차량이용비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 50000,
+            "z": "#,##0_ ",
+            "w": "50,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": -880453,
+            "z": "#,##0_ ",
+            "w": "-880,453 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-05",
+            "r": "<t>2025-03-05</t>",
+            "h": "2025-03-05",
+            "z": "General",
+            "w": "2025-03-05",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(00012)신학기물품",
+            "r": "<t>(00012)신학기물품</t>",
+            "h": "(00012)신학기물품",
+            "z": "General",
+            "w": "(00012)신학기물품",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "알파오메가",
+            "r": "<t>알파오메가</t>",
+            "h": "알파오메가",
+            "z": "General",
+            "w": "알파오메가",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "일반교육활동비",
+            "r": "<t>일반교육활동비</t>",
+            "h": "일반교육활동비",
+            "z": "General",
+            "w": "일반교육활동비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "교재교구구입비",
+            "r": "<t>교재교구구입비</t>",
+            "h": "교재교구구입비",
+            "z": "General",
+            "w": "교재교구구입비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 48700,
+            "z": "#,##0_ ",
+            "w": "48,700 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": -929153,
+            "z": "#,##0_ ",
+            "w": "-929,153 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-05",
+            "r": "<t>2025-03-05</t>",
+            "h": "2025-03-05",
+            "z": "General",
+            "w": "2025-03-05",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(00013)교사 간식비",
+            "r": "<t>(00013)교사 간식비</t>",
+            "h": "(00013)교사 간식비",
+            "z": "General",
+            "w": "(00013)교사 간식비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "에이스마트",
+            "r": "<t>에이스마트</t>",
+            "h": "에이스마트",
+            "z": "General",
+            "w": "에이스마트",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "업무추진비",
+            "r": "<t>업무추진비</t>",
+            "h": "업무추진비",
+            "z": "General",
+            "w": "업무추진비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "일반업무추진비",
+            "r": "<t>일반업무추진비</t>",
+            "h": "일반업무추진비",
+            "z": "General",
+            "w": "일반업무추진비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 11600,
+            "z": "#,##0_ ",
+            "w": "11,600 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": -940753,
+            "z": "#,##0_ ",
+            "w": "-940,753 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-05",
+            "r": "<t>2025-03-05</t>",
+            "h": "2025-03-05",
+            "z": "General",
+            "w": "2025-03-05",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(00014) 아이빌 요금 이체",
+            "r": "<t>(00014) 아이빌 요금 이체</t>",
+            "h": "(00014) 아이빌 요금 이체",
+            "z": "General",
+            "w": "(00014) 아이빌 요금 이체",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "효성에프엠에스(아이빌)",
+            "r": "<t>효성에프엠에스(아이빌)</t>",
+            "h": "효성에프엠에스(아이빌)",
+            "z": "General",
+            "w": "효성에프엠에스(아이빌)",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "관리운영비",
+            "r": "<t>관리운영비</t>",
+            "h": "관리운영비",
+            "z": "General",
+            "w": "관리운영비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수수료및제세공과금",
+            "r": "<t>수수료및제세공과금</t>",
+            "h": "수수료및제세공과금",
+            "z": "General",
+            "w": "수수료및제세공과금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 72160,
+            "z": "#,##0_ ",
+            "w": "72,160 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": -1012913,
+            "z": "#,##0_ ",
+            "w": "-1,012,913 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-05",
+            "r": "<t>2025-03-05</t>",
+            "h": "2025-03-05",
+            "z": "General",
+            "w": "2025-03-05",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(00037)생일미역구입",
+            "r": "<t>(00037)생일미역구입</t>",
+            "h": "(00037)생일미역구입",
+            "z": "General",
+            "w": "(00037)생일미역구입",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "쿠팡",
+            "r": "<t>쿠팡</t>",
+            "h": "쿠팡",
+            "z": "General",
+            "w": "쿠팡",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "일반교육활동비",
+            "r": "<t>일반교육활동비</t>",
+            "h": "일반교육활동비",
+            "z": "General",
+            "w": "일반교육활동비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "행사비",
+            "r": "<t>행사비</t>",
+            "h": "행사비",
+            "z": "General",
+            "w": "행사비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 50000,
+            "z": "#,##0_ ",
+            "w": "50,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": -1062913,
+            "z": "#,##0_ ",
+            "w": "-1,062,913 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-06",
+            "r": "<t>2025-03-06</t>",
+            "h": "2025-03-06",
+            "z": "General",
+            "w": "2025-03-06",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(00009)유아 급식 재료비",
+            "r": "<t>(00009)유아 급식 재료비</t>",
+            "h": "(00009)유아 급식 재료비",
+            "z": "General",
+            "w": "(00009)유아 급식 재료비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "에스마트",
+            "r": "<t>에스마트</t>",
+            "h": "에스마트",
+            "z": "General",
+            "w": "에스마트",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "일반교육활동비",
+            "r": "<t>일반교육활동비</t>",
+            "h": "일반교육활동비",
+            "z": "General",
+            "w": "일반교육활동비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "일반급식비간식비",
+            "r": "<t>일반급식비간식비</t>",
+            "h": "일반급식비간식비",
+            "z": "General",
+            "w": "일반급식비간식비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 59500,
+            "z": "#,##0_ ",
+            "w": "59,500 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": -1122413,
+            "z": "#,##0_ ",
+            "w": "-1,122,413 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-06",
+            "r": "<t>2025-03-06</t>",
+            "h": "2025-03-06",
+            "z": "General",
+            "w": "2025-03-06",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(00015)교육청 교통비",
+            "r": "<t>(00015)교육청 교통비</t>",
+            "h": "(00015)교육청 교통비",
+            "z": "General",
+            "w": "(00015)교육청 교통비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "개인택시",
+            "r": "<t>개인택시</t>",
+            "h": "개인택시",
+            "z": "General",
+            "w": "개인택시",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "업무추진비",
+            "r": "<t>업무추진비</t>",
+            "h": "업무추진비",
+            "z": "General",
+            "w": "업무추진비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "일반업무추진비",
+            "r": "<t>일반업무추진비</t>",
+            "h": "일반업무추진비",
+            "z": "General",
+            "w": "일반업무추진비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 13400,
+            "z": "#,##0_ ",
+            "w": "13,400 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": -1135813,
+            "z": "#,##0_ ",
+            "w": "-1,135,813 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-06",
+            "r": "<t>2025-03-06</t>",
+            "h": "2025-03-06",
+            "z": "General",
+            "w": "2025-03-06",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "(00016)방과후 간식비",
+            "r": "<t>(00016)방과후 간식비</t>",
+            "h": "(00016)방과후 간식비",
+            "z": "General",
+            "w": "(00016)방과후 간식비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "쿠팡",
+            "r": "<t>쿠팡</t>",
+            "h": "쿠팡",
+            "z": "General",
+            "w": "쿠팡",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "그밖의교육활동비",
+            "r": "<t>그밖의교육활동비</t>",
+            "h": "그밖의교육활동비",
+            "z": "General",
+            "w": "그밖의교육활동비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "특별급식비간식비",
+            "r": "<t>특별급식비간식비</t>",
+            "h": "특별급식비간식비",
+            "z": "General",
+            "w": "특별급식비간식비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 16200,
+            "z": "#,##0_ ",
+            "w": "16,200 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": -1152013,
+            "z": "#,##0_ ",
+            "w": "-1,152,013 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFFFFF"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-07",
+            "r": "<t>2025-03-07</t>",
+            "h": "2025-03-07",
+            "z": "General",
+            "w": "2025-03-07",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "25. 3월 교육비 수입",
+            "r": "<t>25. 3월 교육비 수입</t>",
+            "h": "25. 3월 교육비 수입",
+            "z": "General",
+            "w": "25. 3월 교육비 수입",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "초안유치원 김시율 외 5명",
+            "r": "<t>초안유치원 김시율 외 5명</t>",
+            "h": "초안유치원 김시율 외 5명",
+            "z": "General",
+            "w": "초안유치원 김시율 외 5명",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "교육과정수업료",
+            "r": "<t>교육과정수업료</t>",
+            "h": "교육과정수업료",
+            "z": "General",
+            "w": "교육과정수업료",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "교육비[3월]",
+            "r": "<t>교육비[3월]</t>",
+            "h": "교육비[3월]",
+            "z": "General",
+            "w": "교육비[3월]",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 618000,
+            "z": "#,##0_ ",
+            "w": "618,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 618000,
+            "z": "#,##0_ ",
+            "w": "618,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": -534013,
+            "z": "#,##0_ ",
+            "w": "-534,013 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 948000,
+            "f": "SUM(H20:H22)",
+            "z": "#,##0_ ",
+            "w": "948,000 ",
+            "s": {
+                "patternType": "none"
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-07",
+            "r": "<t>2025-03-07</t>",
+            "h": "2025-03-07",
+            "z": "General",
+            "w": "2025-03-07",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "3월 방과후과정 수업료수입 ",
+            "r": "<t xml:space=\"preserve\">3월 방과후과정 수업료수입 </t>",
+            "h": "3월 방과후과정 수업료수입 ",
+            "z": "General",
+            "w": "3월 방과후과정 수업료수입 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "초안유치원 김시율 외 5명",
+            "r": "<t>초안유치원 김시율 외 5명</t>",
+            "h": "초안유치원 김시율 외 5명",
+            "z": "General",
+            "w": "초안유치원 김시율 외 5명",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "방과후교육및돌봄비",
+            "r": "<t>방과후교육및돌봄비</t>",
+            "h": "방과후교육및돌봄비",
+            "z": "General",
+            "w": "방과후교육및돌봄비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "방과후과정교육비[3월]",
+            "r": "<t>방과후과정교육비[3월]</t>",
+            "h": "방과후과정교육비[3월]",
+            "z": "General",
+            "w": "방과후과정교육비[3월]",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 180000,
+            "z": "#,##0_ ",
+            "w": "180,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 180000,
+            "z": "#,##0_ ",
+            "w": "180,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": -354013,
+            "z": "#,##0_ ",
+            "w": "-354,013 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-07",
+            "r": "<t>2025-03-07</t>",
+            "h": "2025-03-07",
+            "z": "General",
+            "w": "2025-03-07",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": ". 3월 교육활동비 수입",
+            "r": "<t>. 3월 교육활동비 수입</t>",
+            "h": ". 3월 교육활동비 수입",
+            "z": "General",
+            "w": ". 3월 교육활동비 수입",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "초안유치원 김시율 외 5명",
+            "r": "<t>초안유치원 김시율 외 5명</t>",
+            "h": "초안유치원 김시율 외 5명",
+            "z": "General",
+            "w": "초안유치원 김시율 외 5명",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "그밖의교육활동수익자부담수입",
+            "r": "<t>그밖의교육활동수익자부담수입</t>",
+            "h": "그밖의교육활동수익자부담수입",
+            "z": "General",
+            "w": "그밖의교육활동수익자부담수입",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "교재재료비(만3,4,5세)[3월]",
+            "r": "<t>교재재료비(만3,4,5세)[3월]</t>",
+            "h": "교재재료비(만3,4,5세)[3월]",
+            "z": "General",
+            "w": "교재재료비(만3,4,5세)[3월]",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 150000,
+            "z": "#,##0_ ",
+            "w": "150,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 150000,
+            "z": "#,##0_ ",
+            "w": "150,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": -204013,
+            "z": "#,##0_ ",
+            "w": "-204,013 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-08",
+            "r": "<t>2025-03-08</t>",
+            "h": "2025-03-08",
+            "z": "General",
+            "w": "2025-03-08",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "25. 3월 교육비 수입",
+            "r": "<t>25. 3월 교육비 수입</t>",
+            "h": "25. 3월 교육비 수입",
+            "z": "General",
+            "w": "25. 3월 교육비 수입",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "초안유치원 박인아 외 3명",
+            "r": "<t>초안유치원 박인아 외 3명</t>",
+            "h": "초안유치원 박인아 외 3명",
+            "z": "General",
+            "w": "초안유치원 박인아 외 3명",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "교육과정수업료",
+            "r": "<t>교육과정수업료</t>",
+            "h": "교육과정수업료",
+            "z": "General",
+            "w": "교육과정수업료",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "교육비[3월]",
+            "r": "<t>교육비[3월]</t>",
+            "h": "교육비[3월]",
+            "z": "General",
+            "w": "교육비[3월]",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 462000,
+            "z": "#,##0_ ",
+            "w": "462,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 462000,
+            "z": "#,##0_ ",
+            "w": "462,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 257987,
+            "z": "#,##0_ ",
+            "w": "257,987 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 682000,
+            "f": "SUM(H23:H25)",
+            "z": "#,##0_ ",
+            "w": "682,000 ",
+            "s": {
+                "patternType": "none"
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-08",
+            "r": "<t>2025-03-08</t>",
+            "h": "2025-03-08",
+            "z": "General",
+            "w": "2025-03-08",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "3월 방과후과정 수업료수입 ",
+            "r": "<t xml:space=\"preserve\">3월 방과후과정 수업료수입 </t>",
+            "h": "3월 방과후과정 수업료수입 ",
+            "z": "General",
+            "w": "3월 방과후과정 수업료수입 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "초안유치원 박인아 외 3명",
+            "r": "<t>초안유치원 박인아 외 3명</t>",
+            "h": "초안유치원 박인아 외 3명",
+            "z": "General",
+            "w": "초안유치원 박인아 외 3명",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "방과후교육및돌봄비",
+            "r": "<t>방과후교육및돌봄비</t>",
+            "h": "방과후교육및돌봄비",
+            "z": "General",
+            "w": "방과후교육및돌봄비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "방과후과정교육비[3월]",
+            "r": "<t>방과후과정교육비[3월]</t>",
+            "h": "방과후과정교육비[3월]",
+            "z": "General",
+            "w": "방과후과정교육비[3월]",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 120000,
+            "z": "#,##0_ ",
+            "w": "120,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 120000,
+            "z": "#,##0_ ",
+            "w": "120,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 377987,
+            "z": "#,##0_ ",
+            "w": "377,987 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-08",
+            "r": "<t>2025-03-08</t>",
+            "h": "2025-03-08",
+            "z": "General",
+            "w": "2025-03-08",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": ". 3월 교육활동비 수입",
+            "r": "<t>. 3월 교육활동비 수입</t>",
+            "h": ". 3월 교육활동비 수입",
+            "z": "General",
+            "w": ". 3월 교육활동비 수입",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "초안유치원 박인아 외 3명",
+            "r": "<t>초안유치원 박인아 외 3명</t>",
+            "h": "초안유치원 박인아 외 3명",
+            "z": "General",
+            "w": "초안유치원 박인아 외 3명",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "그밖의교육활동수익자부담수입",
+            "r": "<t>그밖의교육활동수익자부담수입</t>",
+            "h": "그밖의교육활동수익자부담수입",
+            "z": "General",
+            "w": "그밖의교육활동수익자부담수입",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "교재재료비(만3,4,5세)[3월]",
+            "r": "<t>교재재료비(만3,4,5세)[3월]</t>",
+            "h": "교재재료비(만3,4,5세)[3월]",
+            "z": "General",
+            "w": "교재재료비(만3,4,5세)[3월]",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 100000,
+            "z": "#,##0_ ",
+            "w": "100,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 100000,
+            "z": "#,##0_ ",
+            "w": "100,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 477987,
+            "z": "#,##0_ ",
+            "w": "477,987 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-09",
+            "r": "<t>2025-03-09</t>",
+            "h": "2025-03-09",
+            "z": "General",
+            "w": "2025-03-09",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "25. 3월 교육비 수입",
+            "r": "<t>25. 3월 교육비 수입</t>",
+            "h": "25. 3월 교육비 수입",
+            "z": "General",
+            "w": "25. 3월 교육비 수입",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "초안유치원 권용찬 외 8명",
+            "r": "<t>초안유치원 권용찬 외 8명</t>",
+            "h": "초안유치원 권용찬 외 8명",
+            "z": "General",
+            "w": "초안유치원 권용찬 외 8명",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "교육과정수업료",
+            "r": "<t>교육과정수업료</t>",
+            "h": "교육과정수업료",
+            "z": "General",
+            "w": "교육과정수업료",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "교육비[3월]",
+            "r": "<t>교육비[3월]</t>",
+            "h": "교육비[3월]",
+            "z": "General",
+            "w": "교육비[3월]",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 1003000,
+            "z": "#,##0_ ",
+            "w": "1,003,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 1003000,
+            "z": "#,##0_ ",
+            "w": "1,003,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 1480987,
+            "z": "#,##0_ ",
+            "w": "1,480,987 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 1443000,
+            "f": "SUM(H26:H28)",
+            "z": "#,##0_ ",
+            "w": "1,443,000 ",
+            "s": {
+                "patternType": "none"
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-09",
+            "r": "<t>2025-03-09</t>",
+            "h": "2025-03-09",
+            "z": "General",
+            "w": "2025-03-09",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "3월 방과후과정 수업료수입 ",
+            "r": "<t xml:space=\"preserve\">3월 방과후과정 수업료수입 </t>",
+            "h": "3월 방과후과정 수업료수입 ",
+            "z": "General",
+            "w": "3월 방과후과정 수업료수입 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "초안유치원 권용찬 외 7명",
+            "r": "<t>초안유치원 권용찬 외 7명</t>",
+            "h": "초안유치원 권용찬 외 7명",
+            "z": "General",
+            "w": "초안유치원 권용찬 외 7명",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "방과후교육및돌봄비",
+            "r": "<t>방과후교육및돌봄비</t>",
+            "h": "방과후교육및돌봄비",
+            "z": "General",
+            "w": "방과후교육및돌봄비",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "방과후과정교육비[3월]",
+            "r": "<t>방과후과정교육비[3월]</t>",
+            "h": "방과후과정교육비[3월]",
+            "z": "General",
+            "w": "방과후과정교육비[3월]",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 240000,
+            "z": "#,##0_ ",
+            "w": "240,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 240000,
+            "z": "#,##0_ ",
+            "w": "240,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 1720987,
+            "z": "#,##0_ ",
+            "w": "1,720,987 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-09",
+            "r": "<t>2025-03-09</t>",
+            "h": "2025-03-09",
+            "z": "General",
+            "w": "2025-03-09",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": ". 3월 교육활동비 수입",
+            "r": "<t>. 3월 교육활동비 수입</t>",
+            "h": ". 3월 교육활동비 수입",
+            "z": "General",
+            "w": ". 3월 교육활동비 수입",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "초안유치원 권용찬 외 7명",
+            "r": "<t>초안유치원 권용찬 외 7명</t>",
+            "h": "초안유치원 권용찬 외 7명",
+            "z": "General",
+            "w": "초안유치원 권용찬 외 7명",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "그밖의교육활동수익자부담수입",
+            "r": "<t>그밖의교육활동수익자부담수입</t>",
+            "h": "그밖의교육활동수익자부담수입",
+            "z": "General",
+            "w": "그밖의교육활동수익자부담수입",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "교재재료비(만3,4,5세)[3월]",
+            "r": "<t>교재재료비(만3,4,5세)[3월]</t>",
+            "h": "교재재료비(만3,4,5세)[3월]",
+            "z": "General",
+            "w": "교재재료비(만3,4,5세)[3월]",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 200000,
+            "z": "#,##0_ ",
+            "w": "200,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 200000,
+            "z": "#,##0_ ",
+            "w": "200,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 1920987,
+            "z": "#,##0_ ",
+            "w": "1,920,987 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "C6EFCE"
+                }
+            }
+        }
+    ],
+    [
+        {
+            "t": "s",
+            "v": "2025-03-10",
+            "r": "<t>2025-03-10</t>",
+            "h": "2025-03-10",
+            "z": "General",
+            "w": "2025-03-10",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "25. 3월 교육비 수입",
+            "r": "<t>25. 3월 교육비 수입</t>",
+            "h": "25. 3월 교육비 수입",
+            "z": "General",
+            "w": "25. 3월 교육비 수입",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "초안유치원 박세진 외 10명",
+            "r": "<t>초안유치원 박세진 외 10명</t>",
+            "h": "초안유치원 박세진 외 10명",
+            "z": "General",
+            "w": "초안유치원 박세진 외 10명",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "수익자부담금",
+            "r": "<t>수익자부담금</t>",
+            "h": "수익자부담금",
+            "z": "General",
+            "w": "수익자부담금",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "z",
+            "z": "General",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "교육과정수업료",
+            "r": "<t>교육과정수업료</t>",
+            "h": "교육과정수업료",
+            "z": "General",
+            "w": "교육과정수업료",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "s",
+            "v": "교육비[3월]",
+            "r": "<t>교육비[3월]</t>",
+            "h": "교육비[3월]",
+            "z": "General",
+            "w": "교육비[3월]",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 1233000,
+            "z": "#,##0_ ",
+            "w": "1,233,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 1233000,
+            "z": "#,##0_ ",
+            "w": "1,233,000 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 0,
+            "z": "#,##0_ ",
+            "w": "0 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 3153987,
+            "z": "#,##0_ ",
+            "w": "3,153,987 ",
+            "s": {
+                "patternType": "solid",
+                "fgColor": {
+                    "rgb": "FFEB9C"
+                }
+            }
+        },
+        {
+            "t": "n",
+            "v": 1838000,
+            "f": "SUM(I29:I31)",
+            "z": "#,##0_ ",
+            "w": "1,838,000 ",
+            "s": {
+                "patternType": "none"
+            }
+        }
+    ]
+]
