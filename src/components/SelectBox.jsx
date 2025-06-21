@@ -99,7 +99,7 @@ const SelectBox = ({
               disabled={optionType !== "date"}
               placeholder={`${
                 optionType === "date"
-                  ? "YYYY/MM/DD HH:MM:SS(공백도 확실하게)"
+                  ? "예) YYYY/MM/DD HH:MM:SS(공백도 확실하게)"
                   : optionType === "default"
                   ? "타입을 먼저 선택하세요"
                   : "입력할 필요가 없습니다"

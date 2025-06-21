@@ -1,7 +1,7 @@
 {
     "columnIndex": 0,
     "type": "date",
-    "format": "YYYY-MM-DD"
+    "format": "YYYY-MM-DD" // yyyy-MM-dd로 바꿔줘야함
 }
 
 [

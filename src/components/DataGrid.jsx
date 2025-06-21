@@ -153,7 +153,6 @@ const DataGrid = ({
         const headerTitle = e.cell["header"]["title"];
 
         const handleValueUpdate = (selectedRef) => {
-          console.log(selectedRef);
           if (selectedRef.type !== null) {
             const selectedType = selectedRef.type;
             const setValue =
@@ -230,7 +229,6 @@ const DataGrid = ({
             } else {
               // rowIndex -1 클릭했을 때 해결하기
               const { valueField } = selectedRef;
-              console.log(e.cell);
               const cellValue =
                 currentSheetData[e.cell.rowIndex][e.cell.columnIndex];
 
