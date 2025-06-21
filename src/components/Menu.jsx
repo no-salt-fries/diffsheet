@@ -5,6 +5,8 @@ import MenuDiv from "./UI/MenuDiv";
 // 메뉴 컴포넌트 잘게 쪼개기
 
 const Menu = ({
+  inValidType,
+  setInvalidType,
   fixValue,
   compValue,
   selectedTarget,
@@ -41,7 +43,14 @@ const Menu = ({
                   selected={{ type: "fix", keyField: "key_end" }}
                 />
               </div>
-              <SelectBox category={"key"} setValue={setFixValue} />
+              <SelectBox
+                id={"fix.key"}
+                inValidType={inValidType.includes("fix.key.type.type")}
+                inValidFormat={inValidType.includes("fix.key.type.format")}
+                category={"key"}
+                setInvalidType={setInvalidType}
+                setValue={setFixValue}
+              />
             </div>
           </div>
           {Object.entries(fixValue["value"]).map(([_valueField, cell], i) => {
@@ -63,7 +72,13 @@ const Menu = ({
                     />
                   </div>
                   <SelectBox
+                    id={"fix.value"}
+                    inValidType={inValidType.includes(
+                      `fix.value.${_valueField}.type`
+                    )}
+                    inValidFormat={false}
                     category={`${_valueField}`}
+                    setInvalidType={setInvalidType}
                     setValue={setFixValue}
                   />
                 </div>
@@ -96,7 +111,14 @@ const Menu = ({
                   selected={{ type: "comp", keyField: "key_end" }}
                 />
               </div>
-              <SelectBox category={"key"} setValue={setCompValue} />
+              <SelectBox
+                id={"comp.key"}
+                inValidType={inValidType.includes("comp.key.type.type")}
+                inValidFormat={inValidType.includes("comp.key.type.format")}
+                category={"key"}
+                setInvalidType={setInvalidType}
+                setValue={setCompValue}
+              />
             </div>
           </div>
           {Object.entries(compValue["value"]).map(([_valueField, cell], i) => {
@@ -117,7 +139,16 @@ const Menu = ({
                       }}
                     />
                   </div>
-                  <SelectBox category={"value"} setValue={setCompValue} />
+                  <SelectBox
+                    id={"comp.value"}
+                    inValidType={inValidType.includes(
+                      `comp.value.${_valueField}.type`
+                    )}
+                    inValidFormat={false}
+                    category={`${_valueField}`}
+                    setInvalidType={setInvalidType}
+                    setValue={setCompValue}
+                  />
                 </div>
               </div>
             );

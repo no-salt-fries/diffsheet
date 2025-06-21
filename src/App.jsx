@@ -23,6 +23,8 @@ const App = () => {
 
   const [selectedTarget, setSelectedTarget] = useState(selectedRefInitial);
 
+  const [inValidType, setInvalidType] = useState([]);
+
   // selectingTargetRef, selectedTarget 값을 설정하는 함수
   // handleTargetClick({ type: "fix", keyField: "key_start" })
   // handleTargetClick({ type: "fix", valueField: "1" })
@@ -69,6 +71,39 @@ const App = () => {
     // 적어도 id가 1인 value에는 값이 설정되어있어야 함
     //dataRef에 하나라도 null이 존재할 때는 이 함수가 실행되지 않게하기
 
+    const checkInvalid = () => {
+      const invalids = [];
+
+      const setInvalids = (state, target) => {
+        if (state.key.type.type !== null) {
+          if (state.key.type.type === "date") {
+            if (
+              state.key.type.format === "" ||
+              state.key.type.format === null
+            ) {
+              invalids.push(`${target}.key.type.format`);
+            }
+          }
+        } else {
+          invalids.push(`${target}.key.type.type`);
+        }
+
+        if (state.value[1].type === null) {
+          invalids.push(`${target}.value.1.type`);
+        }
+
+        if (state.value[2].type === null) {
+          invalids.push(`${target}.value.2.type`);
+        }
+      };
+
+      setInvalids(fixValue, "fix");
+      setInvalids(compValue, "comp");
+      setInvalidType(invalids);
+
+      return invalids.length > 0 ? false : true;
+    };
+
     // 선택 된 부분만 가지고와서 새로운 grid에 보여주기
     // 바뀐 순서를 어떻게 설정할지를 고민해봐야할듯
     const getInfo = (wbState) => {
@@ -112,6 +147,9 @@ const App = () => {
         return undefined;
       }
     };
+
+    let isValid = checkInvalid();
+    if (!isValid) return;
 
     const [
       f_workBookId,
@@ -184,6 +222,8 @@ const App = () => {
   return (
     <div className="flex flex-col">
       <Menu
+        inValidType={inValidType}
+        setInvalidType={setInvalidType}
         fixValue={fixValue}
         compValue={compValue}
         selectedTarget={selectedTarget}

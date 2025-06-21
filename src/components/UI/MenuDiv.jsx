@@ -1,4 +1,4 @@
-const MenuDiv = ({ width, children }) => {
+const MenuDiv = ({ borderRed, width, children }) => {
   return (
     <div
       className={`${
@@ -7,7 +7,9 @@ const MenuDiv = ({ width, children }) => {
           : width === "select"
           ? "flex-1"
           : "px-1 w-[250px] mr-5"
-      } border-1 text-base leading-[1rem] flex items-center`}
+      } border-1 text-base leading-[1rem] flex items-center ${
+        borderRed && "border-red-500 bg-red-50"
+      }`}
     >
       {children}
     </div>
