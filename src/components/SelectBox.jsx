@@ -95,7 +95,6 @@ const SelectBox = ({
           <MenuDiv borderRed={inValidFormat} width={"input"}>
             <input
               ref={inputRef}
-              value={keyFieldSelect && wbState.key.type.format}
               className="flex-1 outline-0 focus:bg-yellow-100"
               disabled={optionType !== "date"}
               placeholder={`${

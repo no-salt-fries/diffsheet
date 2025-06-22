@@ -238,8 +238,70 @@ export const compare = (
         c_new.push(c_not_matched[n]);
       }
     } else {
+      if (target === "f") {
+        const f_temp = f_selected.filter((d) => d.index === index);
+        for (let i = 0; i < f_temp.length; i++) {
+          f_new.push(f_temp[i]);
+          c_new.push({});
+        }
+      } else {
+        const c_temp = c_selected.filter((d) => d.index === index);
+        for (let i = 0; i < c_temp.length; i++) {
+          f_new.push({});
+          c_new.push(c_temp[i]);
+        }
+      }
     }
   }
 
-  console.log(f_new, c_new);
+  const f_final = [];
+  const c_final = [];
+  const match_arr = [];
+
+  for (let i = 0; i < f_new.length; i++) {
+    let original_index = -1;
+    // f_data
+    if ("original_index" in f_new[i]) {
+      original_index = f_new[i].original_index;
+    }
+
+    if (original_index !== -1) {
+      f_final.push(f_data[original_index]);
+      match_arr.push(f_new[i].matched);
+    } else {
+      f_final.push({});
+      match_arr.push(false);
+    }
+  }
+
+  for (let j = 0; j < c_new.length; j++) {
+    let original_index = -1;
+    if ("original_index" in c_new[j]) {
+      original_index = c_new[j].original_index;
+    }
+
+    if (original_index !== -1) {
+      c_final.push(c_data[original_index]);
+    } else {
+      c_final.push([]);
+    }
+  }
+
+  console.log(f_final, c_final, match_arr);
+
+  const newWindow = window.open(
+    "/viewer.html",
+    "_blank",
+    "height=" + screen.height + ",width=" + screen.width + "fullscreen=yes"
+  );
+
+  const payload = {
+    f_final,
+    c_final,
+    match_arr,
+  };
+
+  newWindow?.addEventListener("load", () => {
+    newWindow?.postMessage(payload, "*");
+  });
 };

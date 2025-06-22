@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/lib/canvas-datagrid.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      const handleMessage = (event) => {
+        if (!event.data) return;
+        const { f_final, c_final, match_arr } = event.data;
+
+        console.log("고정:", f_final);
+        console.log("비교:", c_final);
+        console.log("일치여부:", match_arr);
+
+        if (f_final && c_final && match_arr.length > 0) {
+          window.removeEventListener("message", handleMessage);
+        }
+
+        const app = document.getElementById("app");
+        const gridEl = document.createElement("div");
+        const grid = canvasDatagrid({
+          parentNode: gridEl,
+          f_final,
+        });
+
+        grid.style.height = "90%";
+        grid.style.width = "100%";
+        app.append(gridEl);
+      };
+
+      window.addEventListener("message", handleMessage);
+    </script>
+  </body>
+</html>
