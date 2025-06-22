@@ -45,6 +45,7 @@ const Menu = ({
               </div>
               <SelectBox
                 id={"fix.key"}
+                wbState={fixValue}
                 inValidType={inValidType.includes("fix.key.type.type")}
                 inValidFormat={inValidType.includes("fix.key.type.format")}
                 category={"key"}
@@ -73,6 +74,7 @@ const Menu = ({
                   </div>
                   <SelectBox
                     id={"fix.value"}
+                    wbState={fixValue}
                     inValidType={inValidType.includes(
                       `fix.value.${_valueField}.type`
                     )}
@@ -113,6 +115,7 @@ const Menu = ({
               </div>
               <SelectBox
                 id={"comp.key"}
+                wbState={compValue}
                 inValidType={inValidType.includes("comp.key.type.type")}
                 inValidFormat={inValidType.includes("comp.key.type.format")}
                 category={"key"}
@@ -141,6 +144,7 @@ const Menu = ({
                   </div>
                   <SelectBox
                     id={"comp.value"}
+                    wbState={compValue}
                     inValidType={inValidType.includes(
                       `comp.value.${_valueField}.type`
                     )}

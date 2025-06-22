@@ -3,6 +3,7 @@ import MenuDiv from "./UI/MenuDiv";
 
 const SelectBox = ({
   id,
+  wbState,
   inValidType,
   inValidFormat,
   category,
@@ -10,7 +11,6 @@ const SelectBox = ({
   setValue,
 }) => {
   const [optionType, setOptionType] = useState("default");
-  const [format, setFormat] = useState(null);
 
   const inputRef = useRef(null);
 
@@ -95,6 +95,7 @@ const SelectBox = ({
           <MenuDiv borderRed={inValidFormat} width={"input"}>
             <input
               ref={inputRef}
+              value={keyFieldSelect && wbState.key.type.format}
               className="flex-1 outline-0 focus:bg-yellow-100"
               disabled={optionType !== "date"}
               placeholder={`${

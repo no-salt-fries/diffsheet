@@ -61,6 +61,7 @@ const processing = (_columnIndex, _valueIndexs, _data) => {
         value_1: value_1,
         value_2: value_2,
         original_index: i,
+        matched: false,
       };
 
       arr.push(tempObj);
@@ -126,9 +127,6 @@ export const compare = (
   let f_selected = processing(f_columnIndex, f_valueColumnIndexs, f_data);
   let c_selected = processing(c_columnIndex, c_valueColumnIndexs, c_data);
 
-  let f_new = [];
-  let c_new = [];
-
   if (f_columnIndex.type === "date") {
     if (!checkTime(f_selected, c_selected)) {
       f_selected = f_selected.map((d) => ({
@@ -150,19 +148,98 @@ export const compare = (
   console.log(f_selected);
   console.log(c_selected);
 
-  //   for (let i = 0; i < f_selected.length; i++) {
-  //     const f_index = f_new[i].index;
-  //     const f_value_1 = f_new[i].value_1;
-  //     const f_value_2 = f_new[i].value_2;
+  const f_selected_index = [...new Set(f_selected.map((d) => d.index))];
+  const c_selected_index = [...new Set(c_selected.map((d) => d.index))];
 
-  //     for (let j = 0; j < c_selected.length; i++) {
-  //       const c_index = c_new[i].index;
-  //       const c_value_1 = c_new[i].value_1;
-  //       const c_value_2 = c_new[i].value_2;
+  // 합쳐서 오름차순
+  const selected_index = [
+    ...new Set(f_selected_index.concat(c_selected_index)),
+  ];
 
-  //       if (f_index !== c_index) continue;
-  //       if (f_index === c_index && j !== 0) {
-  //       }
-  //     }
-  //   }
+  const ordered_selected_index = selected_index.sort(
+    (a, b) => Number(a) - Number(b)
+  );
+
+  const new_selected_index = [];
+
+  for (let i = 0; i < ordered_selected_index.length; i++) {
+    const tempObj = {};
+    const currentIndex = ordered_selected_index[i];
+
+    const f_has_index = f_selected_index.includes(currentIndex);
+    const c_has_index = c_selected_index.includes(currentIndex);
+
+    if (f_has_index && c_has_index) {
+      tempObj["target"] = "all";
+      tempObj["value"] = currentIndex;
+    } else {
+      if (f_has_index) {
+        tempObj["target"] = "f";
+        tempObj["value"] = currentIndex;
+      } else {
+        //c_has_index
+        tempObj["target"] = "c";
+        tempObj["value"] = currentIndex;
+      }
+    }
+
+    new_selected_index.push(tempObj);
+  }
+
+  let f_new = [];
+  let c_new = [];
+
+  for (let j = 0; j < new_selected_index.length; j++) {
+    const target = new_selected_index[j].target;
+    const index = new_selected_index[j].value;
+
+    if (target === "all") {
+      const f_temp = f_selected.filter((d) => d.index === index);
+      const c_temp = c_selected.filter((d) => d.index === index);
+
+      for (let k = 0; k < f_temp.length; k++) {
+        let matched = false;
+
+        const f_value_1 = f_temp[k].value_1;
+        const f_value_2 = f_temp[k].value_2;
+
+        for (let m = 0; m < c_temp.length; m++) {
+          if (c_temp[m].matched) continue;
+
+          const c_value_1 = c_temp[m].value_1;
+          const c_value_2 = c_temp[m].value_2;
+
+          if (f_value_1 === c_value_1) {
+            if (f_value_2 === c_value_2) {
+              f_new.push(f_temp[k]);
+              c_new.push(c_temp[m]);
+              f_temp[k].matched = true;
+              c_temp[m].matched = true;
+              matched = true;
+              break;
+            } else {
+              continue;
+            }
+          } else {
+            continue;
+          }
+        }
+
+        if (!matched) {
+          f_new.push(f_temp[k]);
+          c_new.push({});
+        }
+      }
+
+      // c_temp에 !matched 만큼만 넣어주면 된다
+      const c_not_matched = c_temp.filter((d) => !d.matched);
+      for (let n = 0; n < c_not_matched.length; n++) {
+        f_new.push({});
+        c_new.push(c_not_matched[n]);
+      }
+    } else {
+    }
+  }
+
+  console.log(f_new, c_new);
 };
