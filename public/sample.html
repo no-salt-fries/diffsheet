@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/lib/canvas-datagrid.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script>
+    const app = document.getElementById("app");
+    const gridElement = document.createElement("div");
+    const grid = canvasDatagrid({
+      parentNode: gridElement,
+    });
+
+    app.append(gridElement);
+
+    // JSON 데이터 불러오기
+    fetch("sample.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("데이터 불러오기 실패");
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        console.log(XLSX);
+        const data_1 = XLSX.utils.aoa_to_sheet(data);
+        console.log(data_1);
+        grid.data = data_1; // 데이터 그리드에 넣기
+      })
+      .catch((err) => {
+        console.error("에러:", err);
+      });
+  </script>
+</html>

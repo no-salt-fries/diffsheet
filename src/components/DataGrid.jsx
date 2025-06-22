@@ -18,6 +18,7 @@ const DataGrid = ({
   const [sheetName, setSheetName] = useState(sheetNames[0]);
 
   // sheetName, sheets변화를 제외한 부모 Component의 state변화 무시
+  console.log(sheets);
   const currentSheetData = useMemo(() => {
     return utils.sheet_to_json(sheets[sheetName], {
       header: 1,
@@ -25,6 +26,8 @@ const DataGrid = ({
       defval: "",
     });
   }, [sheetName, sheets]);
+
+  console.log(currentSheetData);
 
   const containerRef = useRef(null);
   const gridRef = useRef(null);
@@ -281,7 +284,7 @@ const DataGrid = ({
           handleValueUpdate(target);
         }
       });
-
+      console.log(currentSheetData);
       grid.data = currentSheetData;
       gridRef.current = grid;
     }
