@@ -6,34 +6,114 @@
     <title>Document</title>
     <script src="/lib/canvas-datagrid.js"></script>
     <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+      }
+
+      #app {
+        width: 100%;
+        height: 100%;
+        display: flex;
+      }
+
+      #grid {
+        height: 100%;
+        width: 50%;
+      }
+
+      #grid2 {
+        height: 100%;
+        width: 50%;
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
-  </body>
-  <script>
-    const app = document.getElementById("app");
-    const gridElement = document.createElement("div");
-    const grid = canvasDatagrid({
-      parentNode: gridElement,
-    });
-
-    app.append(gridElement);
-
-    // JSON 데이터 불러오기
-    fetch("sample.json")
-      .then((res) => {
-        if (!res.ok) throw new Error("데이터 불러오기 실패");
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        console.log(XLSX);
-        const data_1 = XLSX.utils.aoa_to_sheet(data);
-        console.log(data_1);
-        grid.data = data_1; // 데이터 그리드에 넣기
-      })
-      .catch((err) => {
-        console.error("에러:", err);
+    <div id="app">
+      <div id="grid"></div>
+      <div id="grid2"></div>
+    </div>
+    <script>
+      const _grid = document.getElementById("grid");
+      const grid = canvasDatagrid({
+        parentNode: _grid,
       });
-  </script>
+
+      grid.style.width = "100%";
+      grid.style.height = "100%";
+
+      const _grid2 = document.getElementById("grid2");
+      const grid2 = canvasDatagrid({
+        parentNode: _grid2,
+      });
+
+      grid2.style.width = "100%";
+      grid2.style.height = "100%";
+
+      grid.addEventListener("scroll", () => {
+        console.log(grid.scrollTop);
+        grid2.scrollTop = grid.scrollTop;
+      });
+
+      Promise.all([
+        fetch("c_final.json").then((res) => res.json()),
+        fetch("f_final.json").then((res) => res.json()),
+        fetch("match_arr.json").then((res) => res.json()),
+      ]).then(([cFinal, fFinal, matchArr]) => {
+        const data_f = fFinal.map((d) =>
+          d.map((_d) => ("v" in _d ? _d.v : ""))
+        );
+
+        const filtered_f = data_f.map((d) =>
+          d.filter((_d, i) => i === 1 || i === 3 || i === 4)
+        );
+
+        const data_c = cFinal.map((d) =>
+          d.map((_d) => ("v" in _d ? _d.v : ""))
+        );
+
+        const filtered_c = data_c.map((d) =>
+          d.filter((_d, i) => i === 0 || i === 8 || i === 9)
+        );
+
+        grid.addEventListener("rendercell", (e) => {
+          if (e.cell.rowIndex > -1) {
+            if (!matchArr[e.cell.rowIndex]) {
+              e.ctx.fillStyle = "rgb(255 0 0 / 20%)";
+            }
+          }
+        });
+
+        grid2.addEventListener("rendercell", (e) => {
+          if (e.cell.rowIndex > -1) {
+            if (!matchArr[e.cell.rowIndex]) {
+              e.ctx.fillStyle = "rgb(255 0 0 / 20%)";
+            }
+          }
+        });
+
+        grid.data = filtered_f;
+        grid2.data = filtered_c;
+      });
+
+      //   fetch("sample.json")
+      //     .then((res) => {
+      //       if (!res.ok) throw new Error("데이터 불러오기 실패");
+      //       return res.json();
+      //     })
+      //     .then((data) => {
+      //       const data_1 = data.map((d) =>
+      //         d.map((_d) => ("v" in _d ? _d.v : ""))
+      //       );
+      //       grid.data = data_1;
+      //       grid2.data = data_1;
+      //     })
+      //     .catch((err) => {
+      //       console.error("에러:", err);
+      //     });
+    </script>
+  </body>
 </html>

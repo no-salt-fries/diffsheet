@@ -5,10 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="/lib/canvas-datagrid.js"></script>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+      }
+
+      #app {
+        width: 100%;
+        height: 100%;
+        display: flex;
+      }
+
+      .grid-wrapper {
+        height: 100%;
+        width: 50%;
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div class="grid-wrapper" id="left-grid"></div>
+      <div class="grid-wrapper" id="right-grid"></div>
+    </div>
     <script>
+      const app = document.getElementById("app");
+
+      const leftGridWrapper = document.getElementById("left-grid");
+      const leftGrid = canvasDatagrid({
+        parentNode: leftGridWrapper,
+      });
+
+      leftGrid.style.width = "100%";
+      leftGrid.style.height = "100%";
+
+      const rightGridWrapper = document.getElementById("right-grid");
+      const rightGrid = canvasDatagrid({
+        parentNode: rightGridWrapper,
+      });
+
+      rightGrid.style.width = "100%";
+      rightGrid.style.height = "100%";
+
+      leftGrid.addEventListener("scroll", () => {
+        console.log(leftGrid.scrollTop);
+        rightGrid.scrollTop = leftGrid.scrollTop;
+      });
+
       const handleMessage = (event) => {
         if (!event.data) return;
         const { f_final, c_final, match_arr } = event.data;
@@ -17,22 +62,37 @@
         console.log("비교:", c_final);
         console.log("일치여부:", match_arr);
 
-        if (f_final && c_final && match_arr.length > 0) {
+        if (f_final && c_final && match_arr && match_arr.length > 0) {
           window.removeEventListener("message", handleMessage);
         }
 
-        const app = document.getElementById("app");
-        const gridEl = document.createElement("div");
-        const grid = canvasDatagrid({
-          parentNode: gridEl,
-          f_final,
+        const data_f = f_final.map((d) =>
+          d.map((_d) => ("v" in _d ? _d.v : ""))
+        );
+
+        const data_c = c_final.map((d) =>
+          d.map((_d) => ("v" in _d ? _d.v : ""))
+        );
+
+        leftGrid.addEventListener("rendercell", (e) => {
+          if (e.cell.rowIndex > -1) {
+            if (!match_arr[e.cell.rowIndex]) {
+              e.ctx.fillStyle = "rgb(255 0 0 / 20%)";
+            }
+          }
         });
 
-        grid.style.height = "90%";
-        grid.style.width = "100%";
-        app.append(gridEl);
-      };
+        rightGrid.addEventListener("rendercell", (e) => {
+          if (e.cell.rowIndex > -1) {
+            if (!match_arr[e.cell.rowIndex]) {
+              e.ctx.fillStyle = "rgb(255 0 0 / 20%)";
+            }
+          }
+        });
 
+        leftGrid.data = data_f;
+        rightGrid.data = data_c;
+      };
       window.addEventListener("message", handleMessage);
     </script>
   </body>

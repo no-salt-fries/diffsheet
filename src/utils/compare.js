@@ -269,7 +269,7 @@ export const compare = (
       f_final.push(f_data[original_index]);
       match_arr.push(f_new[i].matched);
     } else {
-      f_final.push({});
+      f_final.push([]);
       match_arr.push(false);
     }
   }
